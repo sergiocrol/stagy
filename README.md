@@ -28,8 +28,8 @@ An app to buy and sell live music.
 
 - As a registered user I want to be able to access the homepage so that I see what the app is about and login or signup
 - As a not registered user I want to be able to access the landing page and start searching what I want
-- As a band I want to see a list of bar suggestions in the homepage
-- As a bar I want to see a list of band suggestions in the homepage
+- As a band I want to see a list of stage suggestions in the homepage
+- As a stage I want to see a list of band suggestions in the homepage
 
 **sign up**
 
@@ -57,23 +57,23 @@ account
 
 **search**
 
-- As a band I want to be able to search for available bars according to genre and location
-- As a bar I want to be able to search for available bands by genre and location
+- As a band I want to be able to search for available stages according to genre and location
+- As a stage I want to be able to search for available bands by genre and location
 - As a user I want to see a list of available genres that I can choose from
 
 **search results**
 
 - As a user I want to be able to see a list of results according to my search
-- As a band I want to be able to send a wink to a bar
-- As a bar I want to be able to send a hiring request to a band and choose a date for it
+- As a band I want to be able to send a wink to a stage
+- As a stage I want to be able to send a hiring request to a band and choose a date for it
 
 **notifications**
 
 - As a user I want to be able to see a list of notifications I have reveived
-- As a bar I want to be able to see a list of notifications of which bands are interested in my local
-- As a bar I want to be able to see a list of notifications of requests I have send to bands
-- As a bar I want to be able to cancel a request
-- As band I want to be able to see a list of notifications of bars that want to hire me
+- As a stage I want to be able to see a list of notifications of which bands are interested in my local
+- As a stage I want to be able to see a list of notifications of requests I have send to bands
+- As a stage I want to be able to cancel a request
+- As band I want to be able to see a list of notifications of stages that want to hire me
 - As band I want to accept/reject a request
 - As a user I want to be able to see a notification to rate my experience with another user
 - As a user I want to receive reviews from the other user
@@ -110,7 +110,7 @@ Messaging
 Favorite list
 - Add band/establishment to my list of favorites
 - Delete band/establishment from my list of favorites
-- A bar can be able to to see a list of bands they have send a wink
+- A stage can be able to to see a list of bands they have send a wink
 
 Account
 - Delete account
@@ -126,8 +126,8 @@ Account
 |GET|/auth/login|redirects to / if user logged in<br>renders the login form|
 |POST|/auth/login|redirects to / if user logged in<br>body: email, password|
 |POST|/auth/logout|delete user's session<br>redirect to /|
-|GET|/users/|search in the bar/band collection according query/params <br> renders 'search results' view with the result of search|
-|GET|/users/:id|search selected bar/band in the database <br> renders view with the result of search|
+|GET|/users/|search in the stage/band collection according query/params <br> renders 'search results' view with the result of search|
+|GET|/users/:id|search selected stage/band in the database <br> renders view with the result of search|
 |POST|/users/:id|Get information of selected user and update the rating and reviewers <br> Remove (DOM)
 |GET|/requests/|render popup (Axios - DOM manipulation)
 |POST|/requests/|Create a request in the database <br> remove popup
@@ -143,39 +143,38 @@ Account
 
 Band model
  
-email: String
-password: password
-location: location
-genre: enum
-locations: Array
-price: Number
-rating: Number
-reviewers: Number
-Description: String
-tagline: String
-profilePicture: String
+- email: String
+- password: password
+- location: location
+- genre: enum
+- locations: Array
+- price: Number
+- rating: Number
+- reviewers: Number
+- Description: String
+- tagline: String
+- profilePicture: String
 
+Stage model
 
-Bar model
-
-email: String
-password: password
-location: String
-direction: String
-rating: Number
-reviewers: Number
-Description: String
-tagline: String
-profilePicture: String
+- email: String
+- password: password
+- location: String
+- direction: String
+- rating: Number
+- reviewers: Number
+- Description: String
+- tagline: String
+- profilePicture: String
 
 Request Model
 
-senderId: id
-receiverId: id
-message: String
-Date: Date
-state: enum pending|accepted|rejected|canceled|resolved
-timestamp
+- senderId: id
+- receiverId: id
+- message: String
+- Date: Date
+- state: enum pending|accepted|rejected|canceled|resolved
+- timestamp
 
 ## Links
 
@@ -183,13 +182,12 @@ timestamp
 
 The url to your repository and to your deployed project
 
+## Trello
+
+[Board](https://trello.com/b/RmqyDJtY/stagy)
+
 ### Slides
 
 The url to your presentation slides
 
 [Google Slides](https://docs.google.com/presentation/d/1UKuXn8c_6EyE_YItqEFZ0McmACrQb31HWJJZZY6VMZc/)
-
-## Kanban
-
-img
-
