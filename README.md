@@ -7,9 +7,9 @@ An app to buy and sell live music.
 ## User Stories
 
 **Setup**
-As a developer, I want to have a seeders file to quickly populate the database
-As a developer, I want to have all the files ready to be connected
-As a developer, I want to have all the initial packages and configurations ready to start developing
+- As a developer, I want to have a seeders file to quickly populate the database
+- As a developer, I want to have all the files ready to be connected
+- As a developer, I want to have all the initial packages and configurations ready to start developing
 
 **404**
 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
