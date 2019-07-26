@@ -79,7 +79,6 @@ account
 - As a user I want to receive reminders for the reviews I can give
 - As a user I want to receive reminders to leave a review
 
-
 **requests**
 
 - As a user I want to see a list of requests that have been accepted
@@ -144,10 +143,10 @@ Band model
  
 - email: String
 - password: password
+- name: String
 - location: String
 - genre: enum
 - locations: Array
-- price: Number
 - rating: Number
 - reviewers: Number
 - description: String
@@ -158,8 +157,9 @@ Stage model
 
 - email: String
 - password: password
+- name: String
 - location: String
-- direction: String
+- address: String
 - rating: Number
 - reviewers: Number
 - description: String
