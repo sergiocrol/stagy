@@ -6,7 +6,10 @@ An app to buy and sell live music.
  
 ## User Stories
 
-### Bands and artists
+**Setup**
+As a developer, I want to have a seeders file to quickly populate the database
+As a developer, I want to have all the files ready to be connected
+As a developer, I want to have all the initial packages and configurations ready to start developing
 
 **404**
 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
@@ -15,18 +18,29 @@ An app to buy and sell live music.
 
 - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 
+**layout**
+
+- As a user I want to see a navbar with a logo and menu item in every view
+- As a user I want to see a footer with notifications, requests and search button in every view
+- As a user I want to see a menu button in the nav that allows me to access my profile and logout
+
 **homepage**
 
-- As a user I want to be able to access the homepage so that I see what the app is about and login or signup
+- As a registered user I want to be able to access the homepage so that I see what the app is about and login or signup
+- As a not registered user I want to be able to access the landing page and start searching what I want
+- As a band I want to see a list of bar suggestions in the homepage
+- As a bar I want to see a list of band suggestions in the homepage
 
 **sign up**
 
-- As a user I want to sign up on the webpage so that I can access the searching and offering functionalities
-- As a user I want to specify what type of user I am. Weather I am a band or artist who offers music or a bar/stablishment with a stage for people to play in.
-
+- As a user I want to sign up to the webpage so that I can access the searching and offered functionalities
+- As a user I want to specify my name, username and password, main location and what type of user I am.
+- As a user I want to be able to sign up in any moment of my navigation
 
 **login**
+
 - As a user I want to be able to log in on the webpage so that I can get back to my account
+- As a user I want to be able to log in in every moment of my navigation
 
 **logout** 
 
@@ -37,23 +51,41 @@ account
 
 - As a user I want to enter my preferences and information for my profile
 - As a user I want to edit the current information in my profile
-- As a establishment/independent I want to be able to differenciate if I am a physical location or a user without one
-- As a band/establishment I want to be able to add several locations
+- As a band I want to be able to add several locations and dates
+- As a band I want to be able to set a fee for my services
 - As a user I want to see a list of available genres that I can choose from
 
 **search**
-- As a band/artis I want to be able to search for available establishments according to my preferences
-- As a band/artist I want to see search results related to my profile information (location, genre)
-- As a establishment/independent I want to be able to search for available bands by genre and optional location
-- As a establishment/independent I want to specify a genre and date for my search
+
+- As a band I want to be able to search for available bars according to genre and location
+- As a bar I want to be able to search for available bands by genre and location
 - As a user I want to see a list of available genres that I can choose from
 
-**request**
-- As a establishment/independent I want to send a request to a band/artist for a certain date
-- As a band/artist I want to show my interest in a establishment
-- As a band/artist I want to be able to respond to a request (approve/reject)
-- As a user I want to send a message to the other type of users
+**search results**
 
+- As a user I want to be able to see a list of results according to my search
+- As a band I want to be able to send a wink to a bar
+- As a bar I want to be able to send a hiring request to a band and choose a date for it
+
+**notifications**
+
+- As a user I want to be able to see a list of notifications I have reveived
+- As a bar I want to be able to see a list of notifications of which bands are interested in my local
+- As a bar I want to be able to see a list of notifications of requests I have send to bands
+- As a bar I want to be able to cancel a request
+- As band I want to be able to see a list of notifications of bars that want to hire me
+- As band I want to accept/reject a request
+- As a user I want to be able to see a notification to rate my experience with another user
+- As a user I want to receive reviews from the other user
+- As a user I want to receive reminders for the reviews I can give
+- As a user I want to receive reminders to leave a review
+
+
+**requests**
+
+- As a user I want to see a list of requests that have been accepted
+- As a user I want to be able to cancel a request
+- As a user I can be able to see the request list ordered according to the status
 
 ## Backlog
 
@@ -61,6 +93,7 @@ List of other features outside of the MVPs scope
 
 User profile:
 - Upload pictures and videos
+- Make the pictures bigger
 
 Geo Location:
 - See available establishments in a map 
@@ -77,6 +110,7 @@ Messaging
 Favorite list
 - Add band/establishment to my list of favorites
 - Delete band/establishment from my list of favorites
+- A bar can be able to to see a list of bands they have send a wink
 
 Account
 - Delete account
@@ -126,7 +160,8 @@ Bar model
 
 email: String
 password: password
-location: location
+location: String
+direction: String
 rating: Number
 reviewers: Number
 Description: String
