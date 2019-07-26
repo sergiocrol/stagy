@@ -20,9 +20,8 @@ An app to buy and sell live music.
 
 **layout**
 
-- As a user I want to see a navbar with a logo and menu item in every view
-- As a user I want to see a footer with notifications, requests and search button in every view
-- As a user I want to see a menu button in the nav that allows me to access my profile and logout
+- As a user I want to see a navbar with a logo and back button
+- As a user I want to see a footer with notifications, requests, search and profile buttons in every view
 
 **homepage**
 
@@ -135,9 +134,9 @@ Account
 |POST|/requests/notifications/| Take info of the selected user and update request's state <br> Remove (DOM manipulation)
 |GET|/requests/list/| search in the requests collection according to user's id and state (accepted|rejected|resolved) <br> renders a view with list of requests
 |POST|/requests/list/ | Take info of the selected user and update request's state
-|GET|/users/profile/ | Get information of active user <br> renders view with the result of the request
-|POST|/users/profile/ | Take the information of active user <br> update user's information in the data base <br> rerenders user's profile
-
+|GET|/profile/ | Get information of active user <br> renders view with the result of the request
+|GET|/profile/edit | render the view of profile's edition
+|POST|/profile/dit | Take the edited information and update database <br> rerenders user's profile
 
 ## Models
 
@@ -145,13 +144,13 @@ Band model
  
 - email: String
 - password: password
-- location: location
+- location: String
 - genre: enum
 - locations: Array
 - price: Number
 - rating: Number
 - reviewers: Number
-- Description: String
+- description: String
 - tagline: String
 - profilePicture: String
 
@@ -163,7 +162,7 @@ Stage model
 - direction: String
 - rating: Number
 - reviewers: Number
-- Description: String
+- description: String
 - tagline: String
 - profilePicture: String
 
@@ -173,7 +172,7 @@ Request Model
 - receiverId: id
 - message: String
 - Date: Date
-- state: enum pending|accepted|rejected|canceled|resolved
+- state: enum (pending | accepted | rejected | canceled | resolved)
 - timestamp
 
 ## Links
