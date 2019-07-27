@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  if (req.session.currentUser) {
+    res.redirect('/home');
+  } else {
+    res.render('index', { title: 'Express' });
+  }
 });
 
 router.get('/home', (req, res, next) => {
