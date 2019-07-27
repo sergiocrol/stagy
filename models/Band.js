@@ -47,6 +47,9 @@ const bandSchema = new Schema({
   },
   profilePicture: {
     type: String
+  },
+  userType: {
+    type: String
   }
 });
 

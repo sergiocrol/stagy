@@ -43,6 +43,9 @@ const stageSchema = new Schema({
   },
   profilePicture: {
     type: String
+  },
+  userType: {
+    type: String
   }
 });
 
