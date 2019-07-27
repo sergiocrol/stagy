@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const genres = require('../helpers/genres');
 
 const stageSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     unique: true,
@@ -18,16 +22,12 @@ const stageSchema = new Schema({
     type: String,
     required: true
   },
-  name: {
-    type: String,
-    required: true
-  },
-  address: {
-    type: String
-  },
   genre: {
     type: String,
     enum: genres
+  },
+  address: {
+    type: String
   },
   rating: {
     type: Number

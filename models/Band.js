@@ -7,6 +7,10 @@ const locationSchema = require('./Location');
 const genres = require('../helpers/genres');
 
 const bandSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     unique: true,
@@ -17,10 +21,6 @@ const bandSchema = new Schema({
     required: true
   },
   location: {
-    type: String,
-    required: true
-  },
-  name: {
     type: String,
     required: true
   },
