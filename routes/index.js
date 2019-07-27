@@ -5,6 +5,7 @@ const router = express.Router();
 
 TODO:
   - Revisar historial de navegación para el back-button
+  - Cómo conseguir el nombre de la colección de un documento
 
 FIXME:
 

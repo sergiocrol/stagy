@@ -1,1 +1,5 @@
-<h1>Edit Profile</h1>
+<h1>{{currentUser.name}}</h1>
+<form action="/profile/edit" method="POST">
+  <input type="text" name="name" id="name" value="{{currentUser.name}}">
+  <button type="submit">Save</button>
+</form>

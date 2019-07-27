@@ -1,2 +1,25 @@
 <h1>Profile</h1>
 <a href='/profile/edit'><i class='far fa-edit'></i></a>
+<h2>{{currentUser.name}}</h2>
+<img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
+<p>{{currentUser.rating}} by {{currentUser.reviewers}}</p>
+<p>{{currentUser.location}}</p>
+<p>{{currentUser.tagLine}}</p>
+<p>{{currentUser.description}}</p>
+{{#if currentUser.address}}
+  <p>{{currentUser.address}}</p>
+{{/if}}
+<p>Genres:</p>
+<section class="profile-genres">
+{{#each currentUser.genres}}
+  <p>{{this}}</p>
+{{/each}}
+</section>
+{{#if currentUser.otherLocations}}
+  <section class="profile-other-locations">
+  {{#each currentUser.otherLocations}}
+    <p>{{this.city}}: {{this.startDate}} - {{this.endDate}}</p>
+  {{/each}}
+  </section>
+{{/if}}
+
