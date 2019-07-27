@@ -17,7 +17,7 @@ const isNotLoggedIn = (req, res, next) => {
 const isSignupFormFilled = (req, res, next) => {
   const { email, password, name, location } = req.body;
   if (!name || !password || !email || !location) {
-    req.flash('errorFormNotFilled', 'All fields are required');
+    req.flash('errorFormNotFilled', 'This fields are required');
     return res.redirect(req.originalUrl);
   }
   next();
