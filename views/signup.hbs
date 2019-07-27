@@ -1,22 +1,26 @@
-<h1>Signup</h1>
-<form autocomplete="off" action="/auth/signup" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" placeholder="your name" >
-  <label for="email">Email</label>
-  <input type="text" name="email" id="email" placeholder="example@mail.com" >
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" placeholder="your password">
-  <label for="location">Location</label>
-  <input type="text" name="location" id="location" placeholder="Barcelona" >
-  <p>Are you signin up as: </p>
-  <input type="radio" id="band" name="userType" value="band">
-  <label for="band">Band</label>
-  <input type="radio" id="stage" name="userType" value="stage">
-  <label for="stage">Stage</label>
-  <button type="submit">Signup</button>
-</form>
-{{#if messages.length}}
-  <ul>
-    {{#each messages}}<li>{{this}}</li>{{/each}}
-  </ul>
-{{/if}}
+<section id="signup">
+  <h1>Sign Up</h1>
+  <form class="signup-form" autocomplete="off" action="/auth/signup" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="your name">
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" placeholder="example@mail.com">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="your password">
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" placeholder="Barcelona">
+    <p>Are you signin up as: </p>
+    <section class="radio-buttons">
+      <input type="radio" id="band" name="userType" value="band" checked>
+      <label for="band">Band</label>
+      <input type="radio" id="stage" name="userType" value="stage">
+      <label for="stage">Stage</label>
+    </section>
+    <button type="submit">Signup</button>
+  </form>
+  {{#if messages.length}}
+    <ul>
+      {{#each messages}}<li>{{this}}</li>{{/each}}
+    </ul>
+  {{/if}}
+</section>
