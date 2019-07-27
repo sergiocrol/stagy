@@ -15,3 +15,8 @@
   <label for="stage">Stage</label>
   <button type="submit">Signup</button>
 </form>
+{{#if messages.length}}
+  <ul>
+    {{#each messages}}<li>{{this}}</li>{{/each}}
+  </ul>
+{{/if}}

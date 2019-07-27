@@ -6,14 +6,18 @@ const bcrypt = require('bcrypt');
 
 const Band = require('../models/Band');
 const Stage = require('../models/Stage');
+const { isLoggedIn, isNotLoggedIn, isSignupFormFilled, isLoginFormFilled } = require('../middlewares/authMiddlewares');
 
 const saltRounds = 10;
 
-router.get('/signup', (req, res, next) => {
-  res.render('signup');
+router.get('/signup', isLoggedIn, (req, res, next) => {
+  const data = {
+    messages: req.flash('errorFormNotFilled')
+  };
+  res.render('signup', data);
 });
 
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', isLoggedIn, isSignupFormFilled, async (req, res, next) => {
   const { email, password, location, name, userType } = req.body;
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(password, salt);
@@ -26,6 +30,7 @@ router.post('/signup', async (req, res, next) => {
         email, password: hashedPassword, location, name
       });
       req.session.currentUser = newUser;
+      res.redirect(req.originalUrl);
     } else {
       console.log('This user already exists');
     }
@@ -34,16 +39,36 @@ router.post('/signup', async (req, res, next) => {
   }
 });
 
-router.get('/login', (req, res, next) => {
-
+router.get('/login', isLoggedIn, (req, res, next) => {
+  res.render('login');
 });
 
-router.post('/login', async (req, res, next) => {
-
+router.post('/login', isLoggedIn, isLoginFormFilled, async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    let user = [await Band.findOne({ email })];
+    user.push(await Stage.findOne({ email }));
+    user = user.filter(Boolean);
+    if (user[0]) {
+      if (bcrypt.compareSync(password, user[0].password)) {
+        req.session.currentUser = user[0];
+        res.redirect('/');
+      } else {
+        req.flash('invalidMailPassword', 'Invalid email or password');
+        console.log('Invalid email or password');
+      }
+    } else {
+      req.flash('notUser', 'doesnt exists this user in the DB');
+      console.log('doesnt exists this user in the DB');
+    }
+  } catch (error) {
+    next(error);
+  }
 });
 
-router.post('/logout', (req, res, next) => {
-
+router.post('/logout', isNotLoggedIn, (req, res, next) => {
+  delete req.session.currentUser;
+  res.redirect('/');
 });
 
 module.exports = router;
