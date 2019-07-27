@@ -22,7 +22,8 @@ const bands = [
     reviewers: 0,
     description: 'American rock band formed in Boston',
     tagLine: 'We are Aerosmith!',
-    profilePicture: ''
+    profilePicture: '',
+    userType: 'band'
   },
   {
     name: 'The Rolling Stones',
@@ -33,9 +34,11 @@ const bands = [
     otherLocations: [],
     rating: 0,
     reviewers: 0,
-    description: 'The Rolling Stones are an English rock band formed in London in 1962. The first stable line-up consisted of bandleader Brian Jones (guitar, harmonica, keyboards), Mick Jagger (lead vocals, harmonica), Keith Richards (guitar, vocals), Bill Wyman (bass), Charlie Watts (drums), and Ian Stewart (piano)',
+    description:
+      'The Rolling Stones are an English rock band formed in London in 1962. The first stable line-up consisted of bandleader Brian Jones (guitar, harmonica, keyboards), Mick Jagger (lead vocals, harmonica), Keith Richards (guitar, vocals), Bill Wyman (bass), Charlie Watts (drums), and Ian Stewart (piano)',
     tagLine: 'We are The Rolling Stones!',
-    profilePicture: ''
+    profilePicture: '',
+    userType: 'band'
   },
   {
     name: 'Grupo Niche',
@@ -46,9 +49,11 @@ const bands = [
     otherLocations: [],
     rating: 0,
     reviewers: 0,
-    description: 'Grupo Niche is a salsa group founded in 1978 in Cali, Colombia. Currently based in Cali, Colombia',
+    description:
+      'Grupo Niche is a salsa group founded in 1978 in Cali, Colombia. Currently based in Cali, Colombia',
     tagLine: 'We are Grupo Niche!',
-    profilePicture: ''
+    profilePicture: '',
+    userType: 'band'
   },
   {
     name: 'Grupo Galé',
@@ -59,9 +64,11 @@ const bands = [
     otherLocations: [],
     rating: 0,
     reviewers: 0,
-    description: 'Grupo Galé is a Colombian salsa music band Their album Auténtico was nominated for Latin Grammy Award for Best Salsa Album at the Latin Grammy Awards of 2008.',
+    description:
+      'Grupo Galé is a Colombian salsa music band Their album Auténtico was nominated for Latin Grammy Award for Best Salsa Album at the Latin Grammy Awards of 2008.',
     tagLine: 'We are Grupo Galé!',
-    profilePicture: ''
+    profilePicture: '',
+    userType: 'band'
   }
 ];
 
