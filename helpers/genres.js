@@ -47,6 +47,7 @@ const genres = [
   'Reggae',
   'Rhythm and blues',
   'Rock',
+  'Salsa',
   'Singing',
   'Ska',
   'Soul music',
