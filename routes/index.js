@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+/*
+
+TODO:
+  - Revisar historial de navegación para el back-button
+
+FIXME:
+
+*/
 router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
     res.redirect('/home');
