@@ -27,7 +27,7 @@ router.post('/signup', isLoggedIn, isSignupFormFilled, async (req, res, next) =>
       : { user: await Band.findOne({ email }), model: Band };
     if (!user) {
       const newUser = await model.create({
-        email, password: hashedPassword, location, name
+        email, password: hashedPassword, location, name, userType
       });
       req.session.currentUser = newUser;
       res.redirect(req.originalUrl);

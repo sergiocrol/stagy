@@ -12,6 +12,7 @@ const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -57,6 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 
 app.use((req, res, next) => {
   res.status(404);
