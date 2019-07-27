@@ -22,18 +22,22 @@ const stageSchema = new Schema({
     type: String,
     required: true
   },
-  genre: {
-    type: String,
-    enum: genres
-  },
+  genre: [
+    {
+      type: String,
+      enum: genres
+    }
+  ],
   address: {
     type: String
   },
   rating: {
-    type: Number
+    type: Number,
+    devault: 0
   },
   reviewers: {
-    type: Number
+    type: Number,
+    devault: 0
   },
   description: {
     type: String

@@ -24,20 +24,24 @@ const bandSchema = new Schema({
     type: String,
     required: true
   },
-  genre: {
-    type: String,
-    enum: genres
-  },
+  genre: [
+    {
+      type: String,
+      enum: genres
+    }
+  ],
   otherLocations: [
     {
       type: locationSchema
     }
   ],
   rating: {
-    type: Number
+    type: Number,
+    default: 0
   },
   reviewers: {
-    type: Number
+    type: Number,
+    default: 0
   },
   description: {
     type: String
