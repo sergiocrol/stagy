@@ -18,7 +18,7 @@ a {
   color: #00b7ff;
 }
 
-header,
+#main-header,
 footer {
   background-color: black;
   display: flex;
@@ -26,7 +26,7 @@ footer {
   color: white;
 }
 
-header i,
+#main-header i,
 footer i {
   font-size: 1.5em;
   cursor: pointer;
@@ -36,7 +36,7 @@ i:hover {
   color: var(--orange);
 }
 
-/*--- Header ---*/
+/*--- #main-header ---*/
 
 nav {
   display: flex;
@@ -61,9 +61,26 @@ footer {
 }
 
 /*--- Login ---*/
-/*--- Signup ---*/
 
-#sign-up-in {
+/*--- Forms ---*/
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 10px 0;
+  border: 1px solid #a6a6a6;
+  border-radius: 4px;
+  padding: 8px 5px;
+  font-size: 0.9rem;
+}
+
+p {
+  text-align: left;
+}
+
+#sign-up-in, .edit-profile {
   width: 80%;
   margin: 0 auto;
 }
@@ -78,25 +95,6 @@ footer {
   margin: 3px 0;
   text-align: center;
 }
-
-.sign-up-in-form {
-  display: flex;
-  flex-direction: column;
-}
-
-#sign-up-in .sign-up-in-form p {
-  text-align: left;
-}
-
-
-.sign-up-in-form input {
-  margin: 10px 0;
-  border: 1px solid #a6a6a6;
-  border-radius: 4px;
-  padding: 8px 5px;
-  font-size: 0.9rem;
-}
-
 
 button,
 #landing-page .connect {
@@ -149,4 +147,53 @@ button,
   font-size: 1.2rem;
   padding: 15px 25px;
   margin-bottom: 15px;
+}
+
+/*--- Profile Page ---*/
+
+.profile-header {
+  display: flex;
+}
+
+.edit-profile .image-wrapper {
+  width: 100px;
+  height: 150px;
+  margin: 15px auto;
+}
+/*--- Borders ---*/
+
+.red-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed red;
+}
+
+.orange-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed #ff9100;
+}
+
+.yellow-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed #f5c800;
+}
+
+.green-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed green;
+}
+
+.blue-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed blue;
+}
+
+.purple-border {
+  min-width: 10px;
+  min-height: 10px;  
+  border: 1px dashed purple;
 }
