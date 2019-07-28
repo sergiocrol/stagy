@@ -33,11 +33,11 @@ const stageSchema = new Schema({
   },
   rating: {
     type: Number,
-    devault: 0
+    default: 0
   },
   reviewers: {
     type: Number,
-    devault: 0
+    default: 0
   },
   description: {
     type: String

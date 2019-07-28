@@ -1,7 +1,7 @@
 <h1>Profile</h1>
 <a href='/profile/edit'><i class='far fa-edit'></i></a>
 <h2>{{currentUser.name}}</h2>
-<img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
+<img src={{#if currentUser.profilePicture}} {{currentUser.profilePicture}} {{else}}"../images/image-not-found.jpg"{{/if}} alt="{{currentUser.name}}" width="250px">
 <p>{{currentUser.rating}} by {{currentUser.reviewers}}</p>
 <p>{{currentUser.location}}</p>
 <p>{{currentUser.tagLine}}</p>

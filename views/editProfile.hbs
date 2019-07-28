@@ -1,5 +1,6 @@
 <h1>{{currentUser.name}}</h1>
-<form action="/profile/edit" method="POST">
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
   <input type="text" name="name" id="name" value="{{currentUser.name}}">
+  <input type="file" name="photo" />
   <button type="submit">Save</button>
 </form>
