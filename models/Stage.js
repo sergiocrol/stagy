@@ -43,10 +43,13 @@ const stageSchema = new Schema({
     type: String
   },
   tagLine: {
-    type: String
+    type: String,
+    default: 'A catchy phrase about you'
   },
   profilePicture: {
-    type: String
+    type: String,
+    default:
+      'https://res.cloudinary.com/dlpn1f27n/image/upload/v1564306511/stagy/lu9nat7087pmibthplvz.png'
   },
   userType: {
     type: String

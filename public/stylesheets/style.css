@@ -88,7 +88,8 @@ p {
   text-align: left;
 }
 
-#sign-up-in, .edit-profile {
+#sign-up-in,
+.edit-profile {
   width: 80%;
   margin: 0 auto;
 }
@@ -151,6 +152,11 @@ button,
   margin: 0;
 }
 
+#landing-page p {
+  text-align: center;
+  margin-top: 20px;
+}
+
 #landing-page .connect {
   font-size: 1.2rem;
   padding: 15px 25px;
@@ -182,36 +188,36 @@ button,
 
 .red-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed red;
 }
 
 .orange-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed #ff9100;
 }
 
 .yellow-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed #f5c800;
 }
 
 .green-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed green;
 }
 
 .blue-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed blue;
 }
 
 .purple-border {
   min-width: 10px;
-  min-height: 10px;  
+  min-height: 10px;
   border: 1px dashed purple;
 }

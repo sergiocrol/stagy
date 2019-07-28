@@ -17,12 +17,19 @@ router.get('/edit', signinRequired, (req, res, next) => {
 });
 
 router.post('/edit', parser.single('photo'), signinRequired, async (req, res, next) => {
+  console.log('User:', req.session.currentUser);
   try {
     const { name } = req.body;
-    const profilePicture = req.file.secure_url;
+    const profilePicture = req.file
+      ? req.file.secure_url
+      : req.session.currentUser.profilePicture;
     const user = req.session.currentUser;
     const type = user.userType === 'band' ? Band : Stage;
-    const newUser = await type.findByIdAndUpdate(user._id, { $set: { name, profilePicture } }, { new: true });
+    const newUser = await type.findByIdAndUpdate(
+      user._id,
+      { $set: { name, profilePicture } },
+      { new: true }
+    );
     req.session.currentUser = newUser;
     res.redirect('/profile');
   } catch (error) {

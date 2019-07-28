@@ -15,11 +15,11 @@
     </section>
   </header>
   <hr>
-  <p>{{currentUser.description}}</p>
-  <p>{{currentUser.location}}</p>
-  {{#if currentUser.address}}
-  <p>{{currentUser.address}}</p>
-  {{/if}}
+  <p>Description: {{currentUser.description}}</p>
+  <p>Location: {{currentUser.location}}</p>
+  {{#unless currentUser.otherLocations}}
+  <p>Address: {{currentUser.address}}</p>
+  {{/unless}}
   <p>Genres:</p>
   <section class="profile-genres">
     {{#each currentUser.genres}}
