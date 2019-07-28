@@ -4,11 +4,13 @@
       <img src={{#if currentUser.profilePicture}} {{currentUser.profilePicture}}
         {{else}}"../images/image-not-found.jpg"{{/if}} alt="Profile picture for {{currentUser.name}}">
     </div>
-    <section>
-      <a href='/profile/edit'><i class='far fa-edit'></i></a>
-       <form action="/auth/logout" method="POST">
-        <button type="submit">Logout</button>
-       </form>    
+    <section class="profile-summary">
+      <section class="profile-buttons">
+        <a href='/profile/edit'><i class='far fa-edit'></i></a>
+        <form action="/auth/logout" method="POST">
+          <button type="submit">Logout</button>
+        </form>
+      </section>
       <h1>{{currentUser.name}} </h1>
       <p>{{currentUser.rating}} by {{currentUser.reviewers}}</p>
       <p>{{currentUser.tagLine}}</p>
@@ -17,9 +19,9 @@
   <hr>
   <p>Description: {{currentUser.description}}</p>
   <p>Location: {{currentUser.location}}</p>
-  {{#unless currentUser.otherLocations}}
+  {{#if hasAddress}}
   <p>Address: {{currentUser.address}}</p>
-  {{/unless}}
+  {{/if}}
   <p>Genres:</p>
   <section class="profile-genres">
     {{#each currentUser.genres}}

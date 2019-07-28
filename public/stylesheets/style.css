@@ -167,6 +167,32 @@ button,
 
 .profile-header {
   display: flex;
+  padding: 15px;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-buttons a {
+  color: white;
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 30px;
+  font-size: 1.05em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0 15px;
+}
+.profile-buttons a,
+.profile-buttons button {
+  height: 30px;
+}
+
+.profile-buttons button {
+  padding: 4px 15px 6px;
 }
 
 .edit-profile .image-wrapper {
