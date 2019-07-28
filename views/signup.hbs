@@ -2,13 +2,17 @@
   <h1>Sign Up</h1>
   <form class="sign-up-in-form" autocomplete="off" action="/auth/signup" method="POST">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="your name">
+    <input type="text" name="name" id="name" placeholder="your name" value="{{nameFilled}}">
+    {{#if name.length}} {{name}} {{/if}}
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" placeholder="example@mail.com">
+    <input type="text" name="email" id="email" placeholder="example@mail.com" value="{{emailFilled}}">
+    {{#if emailExist}} {{emailExist}} {{/if}} {{#if email}} {{email}} {{else}} {{validEmail}} {{/if}}
     <label for="password">Password</label>
     <input type="password" name="password" id="password" placeholder="your password">
+    {{#if password}} {{password}} {{else}} {{validPassword}} {{/if}}
     <label for="location">Location</label>
-    <input type="text" name="location" id="location" placeholder="Barcelona">
+    <input type="text" name="location" id="location" placeholder="Barcelona"  value="{{locationFilled}}">
+    {{#if location}} {{location}} {{/if}}
     <section class="radio-buttons">
       <p>You are signin up as </p>
       <input type="radio" id="band" name="userType" value="band" checked>
@@ -19,9 +23,4 @@
     <button type="submit">Signup</button>
   </form>
   <p>or <a href="/auth/login">Login</a></p>
-  {{#if messages.length}}
-  <ul>
-    {{#each messages}}<li>{{this}}</li>{{/each}}
-  </ul>
-  {{/if}}
 </section>

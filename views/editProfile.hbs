@@ -1,7 +1,8 @@
 <section class="edit-profile">
-  <form action="/profile/edit" method="POST">
+  <form action="/profile/edit" method="POST" enctype="multipart/form-data">
     <div class="image-wrapper red-border">
       <img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
+      <input type="file" name="photo" />
     </div>
 
     <label for="name">Name:</label>

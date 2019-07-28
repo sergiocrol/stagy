@@ -160,6 +160,16 @@ button,
   height: 150px;
   margin: 15px auto;
 }
+
+.image-wrapper {
+  width: 100px;
+  height: 150px;
+}
+
+.image-wrapper img {
+  width: 100%;
+}
+
 /*--- Borders ---*/
 
 .red-border {

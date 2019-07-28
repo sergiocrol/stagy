@@ -2,9 +2,13 @@
   <h1>Login</h1>
   <form class="sign-up-in-form" action="/auth/login" method="POST">
     <label for="email">Username</label>
-    <input type="email" name="email" id="email" placeholder="Email">
+    <input type="text" name="email" id="email" placeholder="Email" value="{{emailFilled}}">
+    {{#if email}} {{email}} {{else}} {{validEmail}} {{/if}}
     <label for="password">Password</label>
     <input type="password" name="password" id="password" placeholder="Password">
+    {{#if password}} {{password}} {{/if}}
+    {{#if notUser}} {{notUser}} {{/if}}
+    {{#if invalidMailPassword}} {{invalidMailPassword}} {{/if}}
     <button type="submit">Login</button>
   </form>
   <p>or <a href="/auth/signup">Signup</a></p>

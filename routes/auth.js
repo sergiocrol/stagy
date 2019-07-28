@@ -6,18 +6,28 @@ const bcrypt = require('bcrypt');
 
 const Band = require('../models/Band');
 const Stage = require('../models/Stage');
-const { isLoggedIn, isNotLoggedIn, isSignupFormFilled, isLoginFormFilled } = require('../middlewares/authMiddlewares');
+const { isLoggedIn, isNotLoggedIn, isSignupFormFilled, isLoginFormFilled, isValidEmail, isValidPassword } = require('../middlewares/authMiddlewares');
 
 const saltRounds = 10;
 
 router.get('/signup', isLoggedIn, (req, res, next) => {
   const data = {
-    messages: req.flash('errorFormNotFilled')
+    name: req.flash('nameFormNotFilled'),
+    password: req.flash('passwordFormNotFilled'),
+    email: req.flash('emailFormNotFilled'),
+    location: req.flash('locationFormNotFilled'),
+    nameFilled: req.flash('errorName'),
+    passwordFilled: req.flash('errorPassword'),
+    emailFilled: req.flash('errorEmail'),
+    locationFilled: req.flash('errorLocation'),
+    validEmail: req.flash('wrongEmailFormat'),
+    validPassword: req.flash('wrongPasswordFormat'),
+    emailExist: req.flash('emailExist')
   };
   res.render('signup', data);
 });
 
-router.post('/signup', isLoggedIn, isSignupFormFilled, async (req, res, next) => {
+router.post('/signup', isLoggedIn, isSignupFormFilled, isValidEmail, isValidPassword, async (req, res, next) => {
   const { email, password, location, name, userType } = req.body;
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(password, salt);
@@ -32,7 +42,8 @@ router.post('/signup', isLoggedIn, isSignupFormFilled, async (req, res, next) =>
       req.session.currentUser = newUser;
       res.redirect(req.originalUrl);
     } else {
-      console.log('This user already exists');
+      req.flash('emailExist', 'This email already exist');
+      res.redirect(req.originalUrl);
     }
   } catch (error) {
     next(error);
@@ -40,10 +51,19 @@ router.post('/signup', isLoggedIn, isSignupFormFilled, async (req, res, next) =>
 });
 
 router.get('/login', isLoggedIn, (req, res, next) => {
-  res.render('login');
+  const data = {
+    password: req.flash('passwordFormNotFilled'),
+    email: req.flash('emailFormNotFilled'),
+    passwordFilled: req.flash('errorPassword'),
+    emailFilled: req.flash('errorEmail'),
+    validEmail: req.flash('wrongEmailFormat'),
+    invalidMailPassword: req.flash('invalidMailPassword'),
+    notUser: req.flash('notUser')
+  };
+  res.render('login', data);
 });
 
-router.post('/login', isLoggedIn, isLoginFormFilled, async (req, res, next) => {
+router.post('/login', isLoggedIn, isLoginFormFilled, isValidEmail, async (req, res, next) => {
   const { email, password } = req.body;
   try {
     let user = [await Band.findOne({ email })];
@@ -54,12 +74,12 @@ router.post('/login', isLoggedIn, isLoginFormFilled, async (req, res, next) => {
         req.session.currentUser = user[0];
         res.redirect('/');
       } else {
-        req.flash('invalidMailPassword', 'Invalid email or password');
-        console.log('Invalid email or password');
+        req.flash('invalidMailPassword', 'Invalid password');
+        res.redirect(req.originalUrl);
       }
     } else {
-      req.flash('notUser', 'doesnt exists this user in the DB');
-      console.log('doesnt exists this user in the DB');
+      req.flash('notUser', 'This email is not registered');
+      res.redirect(req.originalUrl);
     }
   } catch (error) {
     next(error);
