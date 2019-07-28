@@ -45,10 +45,18 @@ nav {
   text-align: center;
   width: 100%;
 }
+
+nav i {
+  position: absolute;
+}
+
 .logo {
   height: 35px;
   margin: 0 auto;
-  padding-right: 15px;
+}
+
+.logo img {
+  height: 100%;
 }
 
 /*--- Footer ---*/
