@@ -7,6 +7,7 @@
 }
 
 body {
+  display: flex;
   padding: 0;
   margin: 0;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
@@ -16,6 +17,7 @@ body {
 
 a {
   color: #00b7ff;
+  text-decoration: none
 }
 
 #main-header,
@@ -24,6 +26,18 @@ footer {
   display: flex;
   width: 100%;
   color: white;
+  position: fixed;
+}
+
+footer {
+  bottom: 0px;
+  justify-content: space-evenly;
+  padding: 12px;
+}
+
+#main {
+  margin: 55px 0 45px;
+  width: 100%;;
 }
 
 #main-header i,
@@ -57,15 +71,6 @@ nav i {
 
 .logo img {
   height: 100%;
-}
-
-/*--- Footer ---*/
-
-footer {
-  position: fixed;
-  bottom: 0px;
-  justify-content: space-evenly;
-  padding: 12px;
 }
 
 /*--- Login ---*/
@@ -186,6 +191,11 @@ button,
   display: flex;
   margin: 0 15px;
 }
+
+.profile-buttons i:hover {
+  color: white;
+}
+
 .profile-buttons a,
 .profile-buttons button {
   height: 30px;
