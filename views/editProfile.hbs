@@ -30,15 +30,16 @@
       {{/each}}
     </select>
 
-   <!-- <div class="edit-password">
+    <div class="edit-password">
       <label for="password1">Change password:</label>
-      <input type="password" name="password1" id="password1">
+      <input type="password" name="password" id="password1">
     </div>
     <div class="edit-password">
       <label for="re-password">Repeat new password:</label>
-      <input type="password" name="re-password" id="re-password">
-    </div> -->
-
+      <input type="password" name="rePassword" id="re-password">
+    </div>
+    {{#if data}}{{data.password}}{{/if}}
+     {{#if data}}{{data.differentPasswords}}{{/if}}
     <button type="submit">Save</button>
     <a href="/profile">Cancel</a>
   </form>

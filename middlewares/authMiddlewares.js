@@ -62,6 +62,24 @@ const isValidPassword = (req, res, next) => {
   next();
 };
 
+const bothPasswordField = (req, res, next) => {
+  const { password, rePassword } = req.body;
+  if ((password && !rePassword) || (!password && rePassword)) {
+    req.flash('passwordFormNotFilled', 'Both fields are required');
+    return res.redirect(req.originalUrl);
+  }
+  next();
+};
+
+const differentPasswordField = (req, res, next) => {
+  const { password, rePassword } = req.body;
+  if (password.trim() !== rePassword.trim()) {
+    req.flash('differentPasswords', 'The passwords are not the same');
+    return res.redirect(req.originalUrl);
+  }
+  next();
+};
+
 module.exports = {
   isLoggedIn,
   isNotLoggedIn,
@@ -69,5 +87,7 @@ module.exports = {
   isLoginFormFilled,
   signinRequired,
   isValidEmail,
-  isValidPassword
+  isValidPassword,
+  bothPasswordField,
+  differentPasswordField
 };
