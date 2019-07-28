@@ -3,12 +3,12 @@
     <div class="image-wrapper red-border">
       <img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
     </div>
-    <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
+    <input class="input-file" type="file" name="edit-photo" id="edit-photo" onchange="readURL(this);" />
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{currentUser.name}}">
 
-    <label for="tagline">Tagline:</label>
-    <input type="text" name="tagline" id="tagline" value="{{currentUser.tagLine}}"
+    <label for="tagLine">Tagline:</label>
+    <input type="text" name="tagLine" id="tagLine" value="{{currentUser.tagLine}}"
       placeholder="A catchy phrase about you">
 
     <label for="location">Location:</label>
@@ -18,7 +18,7 @@
     <input type="text" name="description" id="description" value="{{currentUser.description}}"
       placeholder="Tell the world about you">
 
-    {{#if currentUser.address}}
+    {{#if hasAddress}}
     <label for="address">Address:</label>
     <input type="text" name="address" id="address" value="{{currentUser.address}}" placeholder="St Name, 123">
     {{/if}}
@@ -30,16 +30,32 @@
       {{/each}}
     </select>
 
-    <div class="edit-password">
-      <label for="password">Change password:</label>
-      <input type="password" name="password" id="password">
+   <!-- <div class="edit-password">
+      <label for="password1">Change password:</label>
+      <input type="password" name="password1" id="password1">
     </div>
     <div class="edit-password">
       <label for="re-password">Repeat new password:</label>
       <input type="password" name="re-password" id="re-password">
-    </div>
+    </div> -->
 
     <button type="submit">Save</button>
     <a href="/profile">Cancel</a>
   </form>
 </section>
+
+
+<script>
+   function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                  var img = document.querySelector('.image-wrapper img');
+                  img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
