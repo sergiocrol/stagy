@@ -76,11 +76,11 @@ form {
   flex-direction: column;
 }
 
-form input {
+form input, form select {
   margin: 10px 0;
   border: 1px solid #a6a6a6;
   border-radius: 4px;
-  padding: 8px 5px;
+  padding: 5px;
   font-size: 0.9rem;
 }
 
@@ -172,7 +172,15 @@ button,
 .edit-profile .image-wrapper {
   width: 100px;
   height: 150px;
-  margin: 15px auto;
+  margin: 15px auto 0;
+}
+
+.edit-profile {
+  margin-bottom: 65px;
+}
+
+.edit-profile a {
+  text-align: center;
 }
 
 .image-wrapper {
@@ -184,6 +192,18 @@ button,
   width: 100%;
 }
 
+small {
+  margin-top: -5px;
+  margin-bottom: 10px;
+  color: #b10000;
+}
+
+.input-file {
+  border: none;
+  margin: 15px 0;
+  padding: 0;
+  align-self: center;
+}
 /*--- Borders ---*/
 
 .red-border {

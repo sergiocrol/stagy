@@ -3,12 +3,12 @@
   <form class="sign-up-in-form" action="/auth/login" method="POST">
     <label for="email">Username</label>
     <input type="text" name="email" id="email" placeholder="Email" value="{{emailFilled}}">
-    {{#if email}} {{email}} {{else}} {{validEmail}} {{/if}}
+    {{#if email}} <small>{{email}}</small> {{else}} <small>{{validEmail}}</small> {{/if}}
     <label for="password">Password</label>
     <input type="password" name="password" id="password" placeholder="Password">
-    {{#if password}} {{password}} {{/if}}
-    {{#if notUser}} {{notUser}} {{/if}}
-    {{#if invalidMailPassword}} {{invalidMailPassword}} {{/if}}
+    {{#if password}} <small>{{password}}</small> {{/if}}
+    {{#if notUser}} <small>{{notUser}}</small> {{/if}}
+    {{#if invalidMailPassword}} <small>{{invalidMailPassword}}</small> {{/if}}
     <button type="submit">Login</button>
   </form>
   <p>or <a href="/auth/signup">Signup</a></p>

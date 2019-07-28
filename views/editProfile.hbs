@@ -2,9 +2,8 @@
   <form action="/profile/edit" method="POST" enctype="multipart/form-data">
     <div class="image-wrapper red-border">
       <img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
-      <input type="file" name="photo" />
     </div>
-
+    <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{currentUser.name}}">
 
@@ -26,10 +25,20 @@
 
     <label for="genres">Genres:</label>
     <select name="genres" id="genres">
-      {{#each genres}}
+      {{#each genreList}}
       <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
+
+    <div class="edit-password">
+      <label for="password">Change password:</label>
+      <input type="password" name="password" id="password">
+    </div>
+    <div class="edit-password">
+      <label for="re-password">Repeat new password:</label>
+      <input type="password" name="re-password" id="re-password">
+    </div>
+
     <button type="submit">Save</button>
     <a href="/profile">Cancel</a>
   </form>
