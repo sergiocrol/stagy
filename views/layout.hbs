@@ -3,6 +3,8 @@
 
 <head>
   <title>Stagy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://kit.fontawesome.com/9ad7204079.js"></script>
 </head>
@@ -18,7 +20,13 @@
     <a href="/requests/notifications"><i class="fas fa-bell"></i></a>
     <a href="/requests/list"><i class="far fa-calendar-check"></i></a>
     <a href="/home"><i class="fas fa-search"></i></a>
-    <a href="/profile"><i class="fas fa-user"></i></a>
+    <a href="/profile">
+    {{#if currentUser}}
+    <i class="fas fa-user"></i>
+    {{else}}
+    <i class="fas fa-sign-in-alt"></i>
+    {{/if}}
+    </a>
   </footer>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>

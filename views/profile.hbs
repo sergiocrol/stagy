@@ -17,9 +17,9 @@
   <hr>
   <p>Description: {{currentUser.description}}</p>
   <p>Location: {{currentUser.location}}</p>
-  {{#unless currentUser.otherLocations}}
+  {{#if hasAddress}}
   <p>Address: {{currentUser.address}}</p>
-  {{/unless}}
+  {{/if}}
   <p>Genres:</p>
   <section class="profile-genres">
     {{#each currentUser.genres}}
