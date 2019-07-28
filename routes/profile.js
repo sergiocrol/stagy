@@ -8,6 +8,7 @@ const Stage = require('../models/Stage');
 const { signinRequired } = require('../middlewares/authMiddlewares');
 
 router.get('/', signinRequired, (req, res, next) => {
+  console.log(req.session.currentUser);
   res.render('profile');
 });
 

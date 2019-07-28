@@ -5,7 +5,11 @@
         {{else}}"../images/image-not-found.jpg"{{/if}} alt="Profile picture for {{currentUser.name}}">
     </div>
     <section>
-      <h1>{{currentUser.name}}<a href='/profile/edit'><i class='far fa-edit'></i></a></h1>
+      <a href='/profile/edit'><i class='far fa-edit'></i></a>
+       <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+       </form>    
+      <h1>{{currentUser.name}} </h1>
       <p>{{currentUser.rating}} by {{currentUser.reviewers}}</p>
       <p>{{currentUser.tagLine}}</p>
     </section>
