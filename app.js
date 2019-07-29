@@ -10,6 +10,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 
+require('dotenv').config();
+
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
@@ -17,7 +19,7 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/stagy', {
+mongoose.connect('process.env.MONGODB_URI', {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -28,7 +30,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   }),
-  secret: 'some-string',
+  secret: 'process.env.SECRET_STRING',
   resave: true,
   httpOnly: true,
   saveUninitialized: true,
