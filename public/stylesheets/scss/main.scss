@@ -1,7 +1,5 @@
-:root {
-  --orange: #f6911e;
-  --dark-orange: #8f4c00;
-}
+$orange: #f6911e;
+$dark-orange: #8f4c00;
 
 * {
   box-sizing: border-box;
@@ -16,9 +14,24 @@ body {
   height: 100vh;
 }
 
+p {
+  text-align: left;
+}
+
 a {
   color: #0095cf;
   text-decoration: none;
+  cursor: pointer;
+}
+
+small {
+  margin-top: -5px;
+  margin-bottom: 10px;
+  color: #b10000;
+}
+
+.main-section {
+  padding: 15px 25px;
 }
 
 #main-header,
@@ -28,10 +41,14 @@ footer {
   width: 100%;
   color: white;
   position: fixed;
-}
-
-#main-header nav i:hover {
-  color: var(--orange);
+  & i {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+  }
+  & i:hover {
+    color: $orange;
+  }
 }
 
 footer {
@@ -44,18 +61,6 @@ footer {
   margin: 55px 0 45px;
   width: 100%;
 }
-
-#main-header i,
-footer i {
-  font-size: 1.5em;
-  cursor: pointer;
-  color: white;
-}
-i:hover {
-  color: var(--orange);
-}
-
-/*--- #main-header ---*/
 
 nav {
   display: flex;
@@ -72,13 +77,10 @@ nav {
     height: 100%;
   }
 }
-/*--- Login ---*/
 
-/*--- Forms ---*/
 form {
   display: flex;
   flex-direction: column;
-
   & input,
   & select {
     margin: 10px 0;
@@ -86,38 +88,36 @@ form {
     border-radius: 4px;
     padding: 5px;
     font-size: 0.9rem;
+    height: 28px;
   }
 }
 
-p {
-  text-align: left;
-}
-
 #sign-up-in,
-.edit-profile {
+#edit-profile {
   width: 80%;
   margin: 0 auto;
-}
-
-#sign-up-in h1 {
-  color: var(--orange);
-  text-align: center;
-  margin: 30px 0 20px;
-}
-
-#sign-up-in p {
-  margin: 3px 0;
-  text-align: center;
+  & h1 {
+    color: $orange;
+    text-align: center;
+    margin: 30px 0 20px;
+  }
+  & p {
+    margin: 3px 0;
+    text-align: center;
+  }
+  & button {
+    margin-top: 20px;
+  }
 }
 
 button,
 #landing-page .connect,
 .request-button {
-  border: 1px solid var(--orange);
+  border: 1px solid $orange;
   border-radius: 6px;
   font-size: 0.9rem;
   padding: 5px 15px;
-  background-color: var(--orange);
+  background-color: $orange;
   color: white;
   width: fit-content;
   align-self: center;
@@ -131,18 +131,11 @@ button,
 .radio-buttons {
   display: flex;
   align-items: center;
+  & input {
+    margin-left: 20px;
+    margin-right: 10px;
+  }
 }
-
-.radio-buttons input {
-  margin-left: 20px;
-  margin-right: 10px;
-}
-
-.sign-up-in-form button {
-  margin-top: 20px;
-}
-
-/*--- Landing ---*/
 
 #landing-page {
   background-image: url(/images/background.jpg);
@@ -155,105 +148,79 @@ button,
   flex-direction: column;
   text-align: center;
   justify-content: space-evenly;
-}
-
-#landing-page h1 {
-  font-size: 3em;
-  line-height: 1.5;
-  margin: 0;
-}
-
-#landing-page p {
-  text-align: center;
-  margin-top: 20px;
-}
-
-#landing-page .connect {
-  font-size: 1.2rem;
-  padding: 15px 25px;
-  margin-bottom: 15px;
+  & h1 {
+    font-size: 3em;
+    line-height: 1.5;
+    margin: 0;
+  }
+  & p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  & .connect {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+  }
 }
 
 /*--- Profile Page ---*/
 
-.profile-header,
 .user-header {
   display: flex;
-  padding: 15px 25px;
 }
 
-.profile-image,
 .user-image {
   display: flex;
   width: 30%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.profile-summary,
 .user-summary {
   display: flex;
   width: 60%;
   flex-direction: column;
   margin-left: 5%;
+  & h1 {
+    color: var(--dark-orange);
+    margin: 10px 0;
+  }
+  & p {
+    margin: 5px 0;
+  }
 }
 
-.profile-summary h1,
-.user-summary h1 {
-  color: var(--dark-orange);
-  margin: 10px 0;
-}
-
-.profile-summary p,
-.user-summary p {
-  margin: 5px 0;
-}
-
-.profile-buttons {
+.user-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin-bottom: 5px;
+  & a,
+  & button {
+    color: white;
+    background-color: $orange;
+    border-radius: 6px;
+    width: 30px;
+    font-size: 1.05em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 30px;
+  }
+  & button {
+    width: inherit;
+    margin-left: 15px;
+  }
+  & i:hover {
+    color: white;
+  }
 }
 
-.profile-buttons a {
-  color: white;
-  background-color: var(--orange);
-  border-radius: 6px;
-  width: 30px;
-  font-size: 1.05em;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin: 0 15px;
-}
-
-.profile-buttons i:hover,
-.profile-buttons i:hover {
-  color: white;
-}
-
-.profile-buttons a,
-.profile-buttons button {
-  height: 30px;
-  cursor: pointer;
-}
-
-.profile-buttons button {
-  padding: 4px 15px 6px;
-}
-
-.edit-profile .image-wrapper {
-  width: 100px;
-  height: 150px;
-  margin: 15px auto 0;
-}
-
-.edit-profile {
+#edit-profile {
   margin-bottom: 65px;
-}
-
-.edit-profile a {
-  text-align: center;
+  & a {
+    text-align: center;
+  }
 }
 
 .image-wrapper {
@@ -261,16 +228,9 @@ button,
   height: 150px;
   background-size: cover;
   background-position: center;
-}
-
-.image-wrapper img {
-  width: 100%;
-}
-
-small {
-  margin-top: -5px;
-  margin-bottom: 10px;
-  color: #b10000;
+  & img {
+    width: 100%;
+  }
 }
 
 .input-file {

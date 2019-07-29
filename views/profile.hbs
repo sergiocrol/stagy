@@ -1,11 +1,11 @@
-<section class="personal-profile">
-  <header class="profile-header">
-    <section class="profile-image">
+<section class="main-section" id="personal-profile">
+  <header class="user-header">
+    <section class="user-image">
       <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
       </div>
     </section>
-    <section class="profile-summary">
-      <section class="profile-buttons">
+    <section class="user-summary">
+      <section class="user-buttons">
         <a href='/profile/edit'><i class="fas fa-pen"></i></a>
         <form action="/auth/logout" method="POST">
           <button type="submit">Logout</button>
@@ -23,13 +23,13 @@
   <p>Address: {{currentUser.address}}</p>
   {{/if}}
   <p>Genres:</p>
-  <section class="profile-genres">
+  <section class="user-genres">
     {{#each currentUser.genre}}
     <p>{{this}}</p>
     {{/each}}
   </section>
   {{#if currentUser.otherLocations}}
-  <section class="profile-other-locations">
+  <section class="user-other-locations">
     {{#each currentUser.otherLocations}}
     <p>{{this.city}}: {{this.startDate}} - {{this.endDate}}</p>
     {{/each}}

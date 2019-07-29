@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
   const { genre, location } = req.query;
   const model = req.session.currentUser.userType === 'band' ? Stage : Band;
   const locationLower = location.toLowerCase();
-  const users = await model.find({ genre, location: locationLower });
+  const users = await model.find({ genre, location: locationLower }); // eslint-disable-line
   res.render('search-result', { title: 'Search results' });
 });
 
