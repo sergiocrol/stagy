@@ -1,1 +1,17 @@
 <h1>{{title}}</h1>
+<form action="/users/" method="GET">
+  <label for="genre">Genres</label>
+  <select name="genre" id="genre">
+    {{#each genreList}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <label for="location">Location</label>
+  <input type="text" name="location" id="location">
+  <button type="submit">Search</button>
+</form>
+
+<h1>Recomended</h1>
+{{#each searchResult}}
+  <p><a href="/users/{{this._id}}/">{{this.name}}</a></p>
+{{/each}}
