@@ -8,11 +8,13 @@
       <h1>{{user.name}} </h1>
       <p>{{user.rating}} by {{user.reviewers}}</p>
       <p>{{user.tagLine}}</p>
-      {{#if allowRequest}}
-      <a class="request-button" href="/request?userId={{user._id}}">Send a Request</a>
-      {{else}}
-      <a class="request-button" href="/request?userId={{user._id}}">I like this!</a>
-      {{/if}}
+      <a class="request-button" href="/request?userId={{user._id}}">
+        {{#if allowRequest}}
+        Send a Request
+        {{else}}
+        I like this!
+        {{/if}}
+      </a>
     </section>
   </header>
   <hr>
@@ -35,3 +37,5 @@
   </section>
   {{/if}}
 </section>
+{{> requestPopup}}
+<script src="/javascripts/popupHelper.js"></script>

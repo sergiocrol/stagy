@@ -245,6 +245,74 @@ button,
   visibility: hidden;
 }
 
+.request-section {
+  position: absolute;
+  background-color: #000000a6;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & .request-popup {
+    padding: 20px;
+    width: 85%;
+    background-color: white;
+    border: 3px solid $orange;
+    position: relative;
+    & h2 {
+      color: $dark-orange;
+      margin: 0;
+      text-align: center;
+    }
+    & label {
+      margin-top: 10px;
+    }
+    & #reqDate, & #reqMessage {
+      margin: 10px 0;
+      border: 1px solid #a6a6a6;
+      border-radius: 4px;
+      padding: 5px;
+      font-size: 0.9rem;
+      height: 28px;
+    }
+    & #reqDate {
+      background-color: white;
+      margin: 18px 5px 0;
+      padding-left: 5px;
+    }
+    & #reqMessage {
+      height: inherit;
+    }
+    & .send-button {
+      border: 1px solid $orange;
+      border-radius: 6px;
+      font-size: 1rem;
+      padding: 5px 15px;
+      background-color: $orange;
+      color: white;
+      width: fit-content;
+      align-self: center;
+      cursor: pointer;
+      height: auto;
+      margin-bottom: 0;
+    }
+    & .close-popup {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      border-radius: 0;
+      border-bottom-left-radius: 5px;
+      padding: 5px 8px;
+    }
+  }
+}
+
+.popup-hidden {
+  display: none;
+}
+
 /*--- Borders ---*/
 
 .red-border {

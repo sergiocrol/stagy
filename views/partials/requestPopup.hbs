@@ -1,0 +1,21 @@
+<section class="request-section popup-hidden">
+  <section class="request-popup">
+    <button class="close-popup">X</button>
+    {{#if allowRequest}}
+    <h2>Send a request</h2>
+    {{else}}
+    <h2>Show them love!</h2>
+    {{/if}}
+    <form action="/requests">
+      {{#if allowRequest}}
+      <div>
+        <label for="reqDate">Date:</label>
+        <input type="date" name="reqDate" id="reqDate">
+      </div>
+      {{/if}}
+      <label for="reqMessage">Message:</label>
+      <textarea id="reqMessage" name="reqMessage" rows="8"></textarea>
+      <input type="submit" value="Send" class="send-button">
+    </form>
+  </section>
+</section>
