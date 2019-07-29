@@ -7,9 +7,9 @@ const main = () => {
   searchButton.forEach((button) => {
     button.addEventListener('click', () => {
       if (button.classList[1] === 'stage') {
-        searchStage.classList.add('toggle-searchbox');
+        searchStage.classList.remove('hidden');
       } else {
-        searchStage.classList.remove('toggle-searchbox');
+        searchStage.classList.add('hidden');
       }
     });
   });

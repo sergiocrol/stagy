@@ -251,19 +251,54 @@ button,
   position: relative;
 }
 
-.search-band {
-  position: absolute;
+.search-band, .search-stage {
+  display: flex;
   background-color: red;
+  width: 100%;
+  padding: 20px 25px;
+  & form {
+    width: 100%;
+  }
 }
 
 .search-stage {
   position: absolute;
   background-color: blue;
+  top: 0;
+}
+
+.search-top-buttons {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1em;
+  & a {
+    width: 100%;
+    background-color: red;
+    padding: 10px;
+  }
+  & a:last-child {
+    background-color: blue;
+  }
+}
+
+
+.suggestions-container {
+  position: relative;
+}
+
+.suggestions-band {
+  position: absolute;
+  background-color: red;
+}
+
+.suggestions-stage {
+  position: absolute;
+  background-color: blue;
   display: none;
 }
 
-.toggle-searchbox {
-  display: block;
+.hidden {
+  display: none;
 }
 
 .invisible-input {

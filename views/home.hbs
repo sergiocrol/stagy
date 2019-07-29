@@ -14,13 +14,17 @@
         <button type="submit">Search</button>
       </form>
     </div>
-    <h1>Recomended</h1>
-    {{#each searchResult}}
-    <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
-    {{/each}}
+    <div  class="suggestions-container">
+      <h1>Recomended</h1>
+      {{#each searchResult}}
+      <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+      {{/each}}
+    </div>
   {{else}}
-    <a class="searchbox-button band">Find a band</a>
-    <a class="searchbox-button stage">Find a stage</a>
+    <div class="search-top-buttons">
+      <a class="searchbox-button band">Find a band</a>
+      <a class="searchbox-button stage">Find a stage</a>
+    </div>
     <div class="searchbox-container">
       <div class="search-band">
           <form action="/users/type/band" method="GET">
@@ -35,7 +39,7 @@
             <button type="submit">Search Band</button>
           </form>
         </div>
-          <div class="search-stage">
+          <div class="search-stage hidden">
           <form action="/users/type/stage" method="GET">
             <label for="genre">Genres</label>
             <select name="genre" id="genre">
@@ -49,6 +53,26 @@
         </form>
       </div>
     </div>
+    <div  class="suggestions-container">
+      <h1>Recomended</h1>
+      {{#each searchResult}}
+      <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+      {{/each}}
+    </div>
+   <!-- <div class="suggestions-container">
+      <div class="suggestions-band">
+        <h1>Recomended Bands</h1>
+        {{#each searchResultBand}}
+        <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+        {{/each}}
+      </div>
+      <div class="suggestions-stage">
+        <h1>Recomended Stages</h1>
+        {{#each searchResultStage}}
+        <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+        {{/each}}
+      </div>
+    </div> -->
   {{/if}}
 </section>
 
