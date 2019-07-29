@@ -13,6 +13,14 @@ router.get('/', async (req, res, next) => {
   res.render('search-result', { title: 'Search results', users });
 });
 
+router.get('/type/:type', async (req, res, next) => {
+  const { genre, location } = req.query;
+  const locationLower = location.toLowerCase();
+  const type = req.params.type;
+  const users = (type === 'band') ? await Band.find({ genre, location: locationLower }) : await Stage.find({ genre, location: locationLower }); ;
+  res.render('search-result', { title: 'Search results', users });
+});
+
 router.get('/:id', async (req, res, next) => {
   const type = req.query.type === 'band' ? Band : Stage;
   const { id } = req.params;

@@ -1,23 +1,7 @@
 <section class="main-section" id="home-section">
   <h1>{{title}}</h1>
   {{#if currentUser}}
-  <div class="searchbox-container">
-    <form action="/users/" method="GET">
-      <label for="genre">Genres</label>
-      <select name="genre" id="genre">
-        {{#each genreList}}
-        <option value="{{this}}">{{this}}</option>
-        {{/each}}
-      </select>
-      <label for="location">Location</label>
-      <input type="text" name="location" id="location">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-  {{else}}
-  <a class="searchbox-button stage">Stage</a>
-  <a class="searchbox-button band">Band</a>
-  <!--<div class="searchbox-container search-band">
+    <div class="searchbox-container">
       <form action="/users/" method="GET">
         <label for="genre">Genres</label>
         <select name="genre" id="genre">
@@ -30,25 +14,42 @@
         <button type="submit">Search</button>
       </form>
     </div>
-      <div class="searchbox-container search-stage">
-      <form action="/users/" method="GET">
-        <label for="genre">Genres</label>
-        <select name="genre" id="genre">
-          {{#each genreList}}
-          <option value="{{this}}">{{this}}</option>
-          {{/each}}
-        </select>
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location">
-        <button type="submit">Search</button>
-      </form>
-    </div>-->
+    <h1>Recomended</h1>
+    {{#each searchResult}}
+    <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+    {{/each}}
+  {{else}}
+    <a class="searchbox-button band">Find a band</a>
+    <a class="searchbox-button stage">Find a stage</a>
+    <div class="searchbox-container">
+      <div class="search-band">
+          <form action="/users/type/band" method="GET">
+            <label for="genre">Genres</label>
+            <select name="genre" id="genre">
+              {{#each genreList}}
+              <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location">
+            <button type="submit">Search Band</button>
+          </form>
+        </div>
+          <div class="search-stage">
+          <form action="/users/type/stage" method="GET">
+            <label for="genre">Genres</label>
+            <select name="genre" id="genre">
+              {{#each genreList}}
+              <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location">
+            <button type="submit">Search Stage</button>
+        </form>
+      </div>
+    </div>
   {{/if}}
-
-  <h1>Recomended</h1>
-  {{#each searchResult}}
-  <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
-  {{/each}}
 </section>
 
 <script src='../javascripts/searchBox.js'></script>

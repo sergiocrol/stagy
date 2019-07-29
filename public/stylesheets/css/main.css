@@ -203,6 +203,26 @@ button,
   height: 1px;
   visibility: hidden; }
 
+/*--- Homepage ---*/
+.searchbox-container {
+  position: relative; }
+
+.search-band {
+  position: absolute;
+  background-color: red; }
+
+.search-stage {
+  position: absolute;
+  background-color: blue;
+  display: none; }
+
+.toggle-searchbox {
+  display: block; }
+
+.invisible-input {
+  visibility: hidden;
+  height: 0; }
+
 /*--- Borders ---*/
 .red-border {
   min-width: 10px;

@@ -1,22 +1,18 @@
 'use strict';
 
 const main = () => {
-  /*const stageButton = document.querySelector('.searchbox-button.stage');
-  const bandButton = document.querySelector('.searchbox-button.band'); */
   const searchButton = document.querySelectorAll('.searchbox-button');
+  const searchStage = document.querySelector('.search-stage');
 
   searchButton.forEach((button) => {
     button.addEventListener('click', () => {
-      console.log(button);
+      if (button.classList[1] === 'stage') {
+        searchStage.classList.add('toggle-searchbox');
+      } else {
+        searchStage.classList.remove('toggle-searchbox');
+      }
     });
   });
-  /*stageButton.addEventListener('click', () => {
-    console.log(stageButton);
-  });
-
-  bandButton.addEventListener('click', () => {
-    console.log(bandButton);
-  }); */
 };
 
 window.addEventListener('load', main);
