@@ -29,7 +29,9 @@ router.get('/edit', signinRequired, (req, res, next) => {
 
 router.post('/edit', parser.single('edit-photo'), signinRequired, bothPasswordField, differentPasswordField, async (req, res, next) => {
   try {
-    const { name, tagLine, location, description, genres, address, password, rePassword } = req.body;
+    const { name, tagLine, location, description, genres, address, password, rePassword, genreList } = req.body;
+    const genre = genreList.split('-');
+    genre.splice(0, 1);
     const profilePicture = req.file
       ? req.file.secure_url
       : req.session.currentUser.profilePicture;
@@ -39,7 +41,7 @@ router.post('/edit', parser.single('edit-photo'), signinRequired, bothPasswordFi
     if (password === '' && rePassword === '') {
       newUser = await type.findByIdAndUpdate(
         user._id,
-        { $set: { name, tagLine, location, description, genres, profilePicture, address } },
+        { $set: { name, tagLine, location, description, genres, profilePicture, address, genre } },
         { new: true }
       );
     } else {
@@ -47,7 +49,7 @@ router.post('/edit', parser.single('edit-photo'), signinRequired, bothPasswordFi
       const hashedPassword = bcrypt.hashSync(password, salt);
       newUser = await type.findByIdAndUpdate(
         user._id,
-        { $set: { name, tagLine, location, description, genres, profilePicture, address, password: hashedPassword } },
+        { $set: { name, tagLine, location, description, genres, profilePicture, address, password: hashedPassword, genre } },
         { new: true }
       );
     }

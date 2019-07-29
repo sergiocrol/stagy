@@ -3,7 +3,7 @@
     <div class="image-wrapper red-border">
       <img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
     </div>
-    <input class="input-file" type="file" name="edit-photo" id="edit-photo" onchange="readURL(this);" />
+    <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{currentUser.name}}">
 
@@ -29,6 +29,16 @@
       <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
+    <a class="add-genre-button">add</a>
+    <div class="genre-container">
+      {{#if currentUser.genre}}
+        {{#each currentUser.genre}}
+          <button type="button">{{this}}</button>
+        {{/each}}
+      {{/if}}
+    </div>
+    <input class="genre-list" type="text" name="genreList" id="genreList">
+
 
     <div class="edit-password">
       <label for="password1">Change password:</label>
@@ -46,17 +56,5 @@
 </section>
 
 
-<script>
-   function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+<script src="../javascripts/updateImage.js"></script>
 
-                reader.onload = function (e) {
-                  var img = document.querySelector('.image-wrapper img');
-                  img.src = e.target.result;
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-</script>

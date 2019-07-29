@@ -53,7 +53,7 @@ const isValidEmail = (req, res, next) => {
 
 const isValidPassword = (req, res, next) => {
   const { password } = req.body;
-  const re = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
   console.log(re.test(password));
   if (!re.test(password)) {
     req.flash('wrongPasswordFormat', 'Password must contain 6 characters. At least 1 uppercase, 1 number and 1 special character');
