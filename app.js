@@ -19,7 +19,7 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-mongoose.connect('process.env.MONGODB_URI', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -30,7 +30,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   }),
-  secret: 'process.env.SECRET_STRING',
+  secret: process.env.SECRET_STRING,
   resave: true,
   httpOnly: true,
   saveUninitialized: true,
