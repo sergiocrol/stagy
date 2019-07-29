@@ -240,6 +240,12 @@ small {
   padding: 0;
   align-self: center;
 }
+
+.genre-list {
+  height: 1px;
+  visibility: hidden;
+}
+
 /*--- Borders ---*/
 
 .red-border {
