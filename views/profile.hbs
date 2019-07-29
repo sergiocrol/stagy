@@ -1,9 +1,9 @@
 <section class="personal-profile">
   <header class="profile-header">
-    <div class="image-wrapper red-border">
-      <img src={{#if currentUser.profilePicture}} {{currentUser.profilePicture}}
-        {{else}}"../images/image-not-found.jpg"{{/if}} alt="Profile picture for {{currentUser.name}}">
-    </div>
+    <section class="profile-image">
+      <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
+      </div>
+    </section>
     <section class="profile-summary">
       <section class="profile-buttons">
         <a href='/profile/edit'><i class="fas fa-pen"></i></a>

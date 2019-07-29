@@ -1,5 +1,6 @@
 :root {
   --orange: #f6911e;
+  --dark-orange: #8f4c00;
 }
 
 * {
@@ -17,7 +18,7 @@ body {
 
 a {
   color: #00b7ff;
-  text-decoration: none
+  text-decoration: none;
 }
 
 #main-header,
@@ -29,6 +30,10 @@ footer {
   position: fixed;
 }
 
+#main-header nav i:hover {
+  color: var(--orange);
+}
+
 footer {
   bottom: 0px;
   justify-content: space-evenly;
@@ -37,7 +42,7 @@ footer {
 
 #main {
   margin: 55px 0 45px;
-  width: 100%;;
+  width: 100%;
 }
 
 #main-header i,
@@ -60,10 +65,6 @@ nav {
   width: 100%;
 }
 
-nav i {
-  position: absolute;
-}
-
 .logo {
   height: 35px;
   margin: 0 auto;
@@ -81,7 +82,8 @@ form {
   flex-direction: column;
 }
 
-form input, form select {
+form input,
+form select {
   margin: 10px 0;
   border: 1px solid #a6a6a6;
   border-radius: 4px;
@@ -172,12 +174,35 @@ button,
 
 .profile-header {
   display: flex;
-  padding: 15px;
+  padding: 15px 25px;
+}
+
+.profile-image {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.profile-summary {
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+}
+
+.profile-summary h1 {
+  color: var(--dark-orange);
+  margin: 10px 0;
+}
+
+.profile-summary p {
+  margin: 5px 0;
 }
 
 .profile-buttons {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .profile-buttons a {
@@ -192,6 +217,7 @@ button,
   margin: 0 15px;
 }
 
+.profile-buttons i:hover,
 .profile-buttons i:hover {
   color: white;
 }
@@ -199,6 +225,7 @@ button,
 .profile-buttons a,
 .profile-buttons button {
   height: 30px;
+  cursor: pointer;
 }
 
 .profile-buttons button {
@@ -220,8 +247,10 @@ button,
 }
 
 .image-wrapper {
-  width: 100px;
+  width: 120px;
   height: 150px;
+  background-size: cover;
+  background-position: center;
 }
 
 .image-wrapper img {
