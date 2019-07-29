@@ -1,0 +1,324 @@
+:root {
+  --orange: #f6911e;
+  --dark-orange: #8f4c00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  color: #0095cf;
+  text-decoration: none;
+}
+
+#main-header,
+footer {
+  background-color: black;
+  display: flex;
+  width: 100%;
+  color: white;
+  position: fixed;
+}
+
+#main-header nav i:hover {
+  color: var(--orange);
+}
+
+footer {
+  bottom: 0px;
+  justify-content: space-evenly;
+  padding: 12px;
+}
+
+#main {
+  margin: 55px 0 45px;
+  width: 100%;
+}
+
+#main-header i,
+footer i {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
+i:hover {
+  color: var(--orange);
+}
+
+/*--- #main-header ---*/
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.logo {
+  height: 35px;
+  margin: 0 auto;
+  & img {
+    height: 100%;
+  }
+}
+/*--- Login ---*/
+
+/*--- Forms ---*/
+form {
+  display: flex;
+  flex-direction: column;
+
+  & input,
+  & select {
+    margin: 10px 0;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+}
+
+p {
+  text-align: left;
+}
+
+#sign-up-in,
+.edit-profile {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#sign-up-in h1 {
+  color: var(--orange);
+  text-align: center;
+  margin: 30px 0 20px;
+}
+
+#sign-up-in p {
+  margin: 3px 0;
+  text-align: center;
+}
+
+button,
+#landing-page .connect,
+.request-button {
+  border: 1px solid var(--orange);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  background-color: var(--orange);
+  color: white;
+  width: fit-content;
+  align-self: center;
+}
+
+.request-button {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.radio-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.radio-buttons input {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.sign-up-in-form button {
+  margin-top: 20px;
+}
+
+/*--- Landing ---*/
+
+#landing-page {
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 0 10% 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+#landing-page h1 {
+  font-size: 3em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+#landing-page p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#landing-page .connect {
+  font-size: 1.2rem;
+  padding: 15px 25px;
+  margin-bottom: 15px;
+}
+
+/*--- Profile Page ---*/
+
+.profile-header,
+.user-header {
+  display: flex;
+  padding: 15px 25px;
+}
+
+.profile-image,
+.user-image {
+  display: flex;
+  width: 30%;
+  justify-content: center;
+}
+
+.profile-summary,
+.user-summary {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+.profile-summary h1,
+.user-summary h1 {
+  color: var(--dark-orange);
+  margin: 10px 0;
+}
+
+.profile-summary p,
+.user-summary p {
+  margin: 5px 0;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.profile-buttons a {
+  color: white;
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 30px;
+  font-size: 1.05em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0 15px;
+}
+
+.profile-buttons i:hover,
+.profile-buttons i:hover {
+  color: white;
+}
+
+.profile-buttons a,
+.profile-buttons button {
+  height: 30px;
+  cursor: pointer;
+}
+
+.profile-buttons button {
+  padding: 4px 15px 6px;
+}
+
+.edit-profile .image-wrapper {
+  width: 100px;
+  height: 150px;
+  margin: 15px auto 0;
+}
+
+.edit-profile {
+  margin-bottom: 65px;
+}
+
+.edit-profile a {
+  text-align: center;
+}
+
+.image-wrapper {
+  width: 120px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+}
+
+small {
+  margin-top: -5px;
+  margin-bottom: 10px;
+  color: #b10000;
+}
+
+.input-file {
+  border: none;
+  margin: 15px 0;
+  padding: 0;
+  align-self: center;
+}
+
+.genre-list {
+  height: 1px;
+  visibility: hidden;
+}
+
+/*--- Borders ---*/
+
+.red-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed red;
+}
+
+.orange-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed #ff9100;
+}
+
+.yellow-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed #f5c800;
+}
+
+.green-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed green;
+}
+
+.blue-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed blue;
+}
+
+.purple-border {
+  min-width: 10px;
+  min-height: 10px;
+  border: 1px dashed purple;
+}

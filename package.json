@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "nodemon -e js,json,hbs ./bin/www",
-    "sass": "node-sass --watch scss -o css"
+    "sass": "node-sass --watch ./public/stylesheets/scss -o ./public/stylesheets/css"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
