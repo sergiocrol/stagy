@@ -113,7 +113,8 @@ p {
 }
 
 button,
-#landing-page .connect {
+#landing-page .connect,
+.request-button {
   border: 1px solid var(--orange);
   border-radius: 6px;
   font-size: 0.9rem;
@@ -122,6 +123,11 @@ button,
   color: white;
   width: fit-content;
   align-self: center;
+}
+
+.request-button {
+  align-self: flex-start;
+  margin-top: 5px;
 }
 
 .radio-buttons {
@@ -172,29 +178,35 @@ button,
 
 /*--- Profile Page ---*/
 
-.profile-header {
+.profile-header,
+.user-header {
   display: flex;
   padding: 15px 25px;
 }
 
-.profile-image {
+.profile-image,
+.user-image {
   display: flex;
-  flex-grow: 1;
+  width: 30%;
   justify-content: center;
 }
 
-.profile-summary {
+.profile-summary,
+.user-summary {
   display: flex;
-  flex-grow: 2;
+  width: 60%;
   flex-direction: column;
+  margin-left: 5%;
 }
 
-.profile-summary h1 {
+.profile-summary h1,
+.user-summary h1 {
   color: var(--dark-orange);
   margin: 10px 0;
 }
 
-.profile-summary p {
+.profile-summary p,
+.user-summary p {
   margin: 5px 0;
 }
 

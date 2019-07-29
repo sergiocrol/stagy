@@ -1,0 +1,37 @@
+<section class="user-profile">
+  <header class="user-header">
+    <section class="user-image">
+      <div class="image-wrapper" style="background-image: url({{user.profilePicture}}">
+      </div>
+    </section>
+    <section class="user-summary">
+      <h1>{{user.name}} </h1>
+      <p>{{user.rating}} by {{user.reviewers}}</p>
+      <p>{{user.tagLine}}</p>
+      {{#if allowRequest}}
+      <a class="request-button" href="/request?userId={{user._id}}">Send a Request</a>
+      {{else}}
+      <a class="request-button" href="/request?userId={{user._id}}">I like this!</a>
+      {{/if}}
+    </section>
+  </header>
+  <hr>
+  <p>Description: {{user.description}}</p>
+  <p>Location: {{user.location}}</p>
+  {{#if hasAddress}}
+  <p>Address: {{user.address}}</p>
+  {{/if}}
+  <p>Genres:</p>
+  <section class="profile-genres">
+    {{#each user.genre}}
+    <p>{{this}}</p>
+    {{/each}}
+  </section>
+  {{#if user.otherLocations}}
+  <section class="profile-other-locations">
+    {{#each user.otherLocations}}
+    <p>{{this.city}}: {{this.startDate}} - {{this.endDate}}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+</section>
