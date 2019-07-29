@@ -1,22 +1,56 @@
 <h1>{{title}}</h1>
-<form action="/users/" method="GET">
-  <label for="genre">Genres</label>
-  <select name="genre" id="genre">
-    {{#each genreList}}
-    <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-  <label for="location">Location</label>
-  <input type="text" name="location" id="location">
-  <button type="submit">Search</button>
-</form>
+{{#if currentUser}}
+  <div class="searchbox-container">
+    <form action="/users/" method="GET">
+      <label for="genre">Genres</label>
+      <select name="genre" id="genre">
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <label for="location">Location</label>
+      <input type="text" name="location" id="location">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+{{else}}
+  <a class="searchbox-button stage">Stage</a>
+  <a class="searchbox-button band">Band</a>
+  <!--<div class="searchbox-container search-band">
+    <form action="/users/" method="GET">
+      <label for="genre">Genres</label>
+      <select name="genre" id="genre">
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <label for="location">Location</label>
+      <input type="text" name="location" id="location">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+    <div class="searchbox-container search-stage">
+    <form action="/users/" method="GET">
+      <label for="genre">Genres</label>
+      <select name="genre" id="genre">
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <label for="location">Location</label>
+      <input type="text" name="location" id="location">
+      <button type="submit">Search</button>
+    </form>
+  </div>-->
+{{/if}}
+
 
 <h1>Recomended</h1>
 {{#each searchResult}}
   <p><a href="/users/{{this._id}}/">{{this.name}}</a></p>
 {{/each}}
 
-<h2>Bands</h2>
+<!-- <h2>Bands</h2>
 <ul>
   <li><a href="/users/5d3ec669b3089c355f505621?type=band">Band 1</a></li>
   <li><a href="/users/5d3ec669b3089c355f505622?type=band">Band 2</a></li>
@@ -30,4 +64,6 @@
   <li><a href="/users/5d3ec670cd3a9e3567a48983?type=stage">Stage 2</a></li>
   <li><a href="/users/5d3ec670cd3a9e3567a48984?type=stage">Stage 3</a></li>
   <li><a href="/users/5d3ec670cd3a9e3567a48985?type=stage">Stage 4</a></li>
-</ul>
+</ul> -->
+
+<script src='../javascripts/searchBox.js'></script>
