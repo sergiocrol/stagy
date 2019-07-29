@@ -31,13 +31,14 @@ router.post('/signup', isLoggedIn, isSignupFormFilled, isValidEmail, isValidPass
   const { email, password, location, name, userType } = req.body;
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(password, salt);
+  const locationLower = location.toLowerCase();
   try {
     const { user, model } = (userType === 'stage')
       ? { user: await Stage.findOne({ email }), model: Stage }
       : { user: await Band.findOne({ email }), model: Band };
     if (!user) {
       const newUser = await model.create({
-        email, password: hashedPassword, location, name, userType
+        email, password: hashedPassword, location: locationLower, name, userType
       });
       req.session.currentUser = newUser;
       res.redirect(req.originalUrl);

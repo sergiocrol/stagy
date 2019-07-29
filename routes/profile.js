@@ -37,11 +37,12 @@ router.post('/edit', parser.single('edit-photo'), signinRequired, bothPasswordFi
       : req.session.currentUser.profilePicture;
     const user = req.session.currentUser;
     const type = user.userType === 'band' ? Band : Stage;
+    const locationLower = location.toLowerCase();
     let newUser = null;
     if (password === '' && rePassword === '') {
       newUser = await type.findByIdAndUpdate(
         user._id,
-        { $set: { name, tagLine, location, description, genres, profilePicture, address, genre } },
+        { $set: { name, tagLine, location: locationLower, description, genres, profilePicture, address, genre } },
         { new: true }
       );
     } else {
@@ -49,7 +50,7 @@ router.post('/edit', parser.single('edit-photo'), signinRequired, bothPasswordFi
       const hashedPassword = bcrypt.hashSync(password, salt);
       newUser = await type.findByIdAndUpdate(
         user._id,
-        { $set: { name, tagLine, location, description, genres, profilePicture, address, password: hashedPassword, genre } },
+        { $set: { name, tagLine, location: locationLower, description, genres, profilePicture, address, password: hashedPassword, genre } },
         { new: true }
       );
     }
