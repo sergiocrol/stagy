@@ -31,7 +31,8 @@ router.get('/home', async (req, res, next) => {
     const model = user.userType === 'band' ? Stage : Band;
     data.searchResult = await model.find({});
   } else {
-    data.searchResult = await Band.find({});
+    data.searchResultBand = await Band.find({});
+    data.searchResultStage = await Stage.find({});
   }
   res.render('home', data);
 });
