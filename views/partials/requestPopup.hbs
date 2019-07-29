@@ -6,7 +6,8 @@
     {{else}}
     <h2>Show them love!</h2>
     {{/if}}
-    <form action="/requests">
+
+    <form action="/requests?userId={{user._id}}&currId={{currentUser._id}}" method="POST">
       {{#if allowRequest}}
       <div>
         <label for="reqDate">Date:</label>
@@ -17,5 +18,6 @@
       <textarea id="reqMessage" name="reqMessage" rows="8"></textarea>
       <input type="submit" value="Send" class="send-button">
     </form>
+
   </section>
 </section>

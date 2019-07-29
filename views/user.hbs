@@ -8,13 +8,13 @@
       <h1>{{user.name}} </h1>
       <p>{{user.rating}} by {{user.reviewers}}</p>
       <p>{{user.tagLine}}</p>
-      <a class="request-button" href="/request?userId={{user._id}}">
+      <button class="request-button">
         {{#if allowRequest}}
         Send a Request
         {{else}}
         I like this!
         {{/if}}
-      </a>
+      </button>
     </section>
   </header>
   <hr>
