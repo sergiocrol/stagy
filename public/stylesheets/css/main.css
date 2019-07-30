@@ -191,6 +191,21 @@ button,
   .user-buttons i:hover {
     color: white; }
 
+.user-genres {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -8px; }
+  .user-genres p {
+    margin: 0;
+    padding-right: 10px; }
+  .user-genres span {
+    background-color: #f6911e;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: white;
+    margin: 5px 10px 2px 0; }
+
 #edit-profile {
   margin-bottom: 65px; }
   #edit-profile a {

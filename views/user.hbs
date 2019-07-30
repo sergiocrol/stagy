@@ -23,10 +23,10 @@
   {{#if hasAddress}}
   <p>Address: {{user.address}}</p>
   {{/if}}
-  <p>Genres:</p>
-  <section class="profile-genres">
+  <section class="user-genres">
+    <p>Genres:</p>
     {{#each user.genre}}
-    <p>{{this}}</p>
+    <span>{{this}}</span>
     {{/each}}
   </section>
   {{#if user.otherLocations}}
