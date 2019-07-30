@@ -37,7 +37,8 @@ footer {
   display: flex;
   width: 100%;
   color: white;
-  position: fixed; }
+  position: fixed;
+  z-index: 10; }
   #main-header i,
   footer i {
     font-size: 1.5em;

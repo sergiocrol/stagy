@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const Request = require('../models/Request');
-const moment = require('moment');
+// const moment = require('moment');
 
 router.get('/', (req, res, next) => {
   res.redirect('/requests/list');
@@ -13,8 +13,9 @@ router.get('/', (req, res, next) => {
 router.get('/list', async (req, res, next) => {
   try {
     const sendId = req.session.currentUser._id;
-    const requests = await Request.find({ sendId }).populate('from to');
-    console.log('<<<Requests>>>:', requests);
+    const recId = req.session.currentUser._id;
+    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: 1 }).populate('from to');
+    console.log('<<<requests>>>: ', requests);
     res.render('requests', { requests });
   } catch (error) {
     next(error);
@@ -45,7 +46,7 @@ router.post('/', async (req, res, next) => {
       sendId,
       recId,
       message,
-      date: moment(date).format('MMM Do YY')
+      date
     });
     res.redirect(req.get('referer'));
   } catch (error) {
