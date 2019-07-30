@@ -22,6 +22,9 @@ small {
   margin-bottom: 10px;
   color: #b10000; }
 
+.cap {
+  text-transform: capitalize; }
+
 .main-section {
   padding: 15px 25px; }
 
@@ -37,6 +40,10 @@ footer {
     font-size: 1.5em;
     cursor: pointer;
     color: white; }
+  #main-header i,
+  footer i {
+    width: -15px;
+    margin-right: -15px; }
   #main-header i:hover,
   footer i:hover {
     color: #f6911e; }
