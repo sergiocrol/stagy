@@ -9,8 +9,9 @@ const moment = require('moment');
 router.get('/', async (req, res, next) => {
   try {
     const sendId = req.session.currentUser._id;
-    const requests = await Request.find({ sendId }).populate('from to');
-    console.log('<<<Requests>>>:', requests);
+    const recId = req.session.currentUser._id;
+    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: 1 }).populate('from to');
+    console.log('<<<requests>>>: ', requests);
     res.render('requests', { requests });
   } catch (error) {
     next(error);
@@ -30,9 +31,10 @@ router.post('/', async (req, res, next) => {
       sendId,
       recId,
       message,
-      date: moment(date).format('MMM Do YY')
+      date
+      // date: moment(date).format('MMM Do YY')
     });
-    res.redirect('/requests');
+    // res.redirect('/requests');
   } catch (error) {
     next(error);
   }

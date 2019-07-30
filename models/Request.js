@@ -18,7 +18,7 @@ const requestSchema = new Schema(
       type: String
     },
     date: {
-      type: String
+      type: Date
     },
     status: {
       type: String,
