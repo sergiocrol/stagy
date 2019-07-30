@@ -269,7 +269,7 @@ button,
     & label {
       margin-top: 10px;
     }
-    & #reqDate, & #reqMessage {
+    & #date, & #message {
       margin: 10px 0;
       border: 1px solid #a6a6a6;
       border-radius: 4px;
@@ -277,12 +277,12 @@ button,
       font-size: 0.9rem;
       height: 28px;
     }
-    & #reqDate {
+    & #date {
       background-color: white;
       margin: 18px 5px 0;
       padding-left: 5px;
     }
-    & #reqMessage {
+    & #message {
       height: inherit;
     }
     & .send-button {

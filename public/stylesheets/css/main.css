@@ -225,18 +225,18 @@ button,
       text-align: center; }
     .request-section .request-popup label {
       margin-top: 10px; }
-    .request-section .request-popup #reqDate, .request-section .request-popup #reqMessage {
+    .request-section .request-popup #date, .request-section .request-popup #message {
       margin: 10px 0;
       border: 1px solid #a6a6a6;
       border-radius: 4px;
       padding: 5px;
       font-size: 0.9rem;
       height: 28px; }
-    .request-section .request-popup #reqDate {
+    .request-section .request-popup #date {
       background-color: white;
       margin: 18px 5px 0;
       padding-left: 5px; }
-    .request-section .request-popup #reqMessage {
+    .request-section .request-popup #message {
       height: inherit; }
     .request-section .request-popup .send-button {
       border: 1px solid #f6911e;

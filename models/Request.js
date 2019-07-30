@@ -6,14 +6,12 @@ const ObjectId = Schema.Types.ObjectId;
 
 const requestSchema = new Schema({
   fromModel: String,
-  senderId: {
-    type: ObjectId,
-    ref: this.fromModel
+  sendId: {
+    type: ObjectId
   },
   toModel: String,
-  receiverId: {
-    type: ObjectId,
-    ref: this.toModel
+  recId: {
+    type: ObjectId
   },
   message: {
     type: String
@@ -23,10 +21,25 @@ const requestSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'accepted', 'rejected', 'canceled', 'resolved']
+    enum: ['pending', 'accepted', 'rejected', 'canceled', 'resolved'],
+    default: 'pending'
   }
 }, {
   timestamps: true
+}, { toObject: { virtuals: true } });
+
+requestSchema.virtual('from', {
+  ref: doc => doc.fromModel,
+  localField: 'fromId',
+  foreignField: '_id',
+  justOne: true
+});
+
+requestSchema.virtual('to', {
+  ref: doc => doc.toModel,
+  localField: 'toId',
+  foreignField: '_id',
+  justOne: true
 });
 
 const Request = mongoose.model('Request', requestSchema);

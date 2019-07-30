@@ -7,15 +7,15 @@
     <h2>Show them love!</h2>
     {{/if}}
 
-    <form action="/requests?userId={{user._id}}&currId={{currentUser._id}}" method="POST">
+    <form action="/requests?type={{currentUser.userType}}&sendId={{currentUser._id}}&recId={{user._id}}" method="POST">
       {{#if allowRequest}}
       <div>
-        <label for="reqDate">Date:</label>
-        <input type="date" name="reqDate" id="reqDate">
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date">
       </div>
       {{/if}}
-      <label for="reqMessage">Message:</label>
-      <textarea id="reqMessage" name="reqMessage" rows="8"></textarea>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="8"></textarea>
       <input type="submit" value="Send" class="send-button">
     </form>
 
