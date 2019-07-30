@@ -352,17 +352,21 @@ button,
 
 .suggestions-container {
   position: relative;
+  margin-top: 30px;
 }
 
-.suggestions-band {
-  position: absolute;
+.suggestions-band, .suggestions-stage {
+  display: flex;
   background-color: red;
+  width: 100%;
+  padding: 20px 25px;
+  flex-direction: column;
 }
 
 .suggestions-stage {
   position: absolute;
   background-color: blue;
-  display: none;
+  top: 0;
 }
 
 .hidden {
@@ -372,6 +376,25 @@ button,
 .invisible-input {
   visibility: hidden;
   height: 0;
+}
+
+/*--- Card ---*/
+
+.card-container {
+  display: flex;
+  margin-top: 20px;
+  cursor: pointer;
+  & img {
+    width: 100px;
+  }
+  & article {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    & p {
+      margin: 0;
+    }
+  }
 }
 
 /*--- Borders ---*/

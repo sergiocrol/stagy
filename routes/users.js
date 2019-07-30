@@ -8,16 +8,16 @@ const Stage = require('../models/Stage');
 router.get('/', async (req, res, next) => {
   const { genre, location } = req.query;
   const model = req.session.currentUser.userType === 'band' ? Stage : Band;
-  const locationLower = location.toLowerCase();
-  const users = await model.find({ genre, location: locationLower });
+  const locationTrim = location.trim();
+  const users = (locationTrim !== '') ? await model.find({ genre, location: { $regex: locationTrim, $options: 'i' } }) : await model.find({ genre });
   res.render('search-result', { title: 'Search results', users });
 });
 
 router.get('/type/:type', async (req, res, next) => {
   const { genre, location } = req.query;
-  const locationLower = location.toLowerCase();
   const type = req.params.type;
-  const users = (type === 'band') ? await Band.find({ genre, location: locationLower }) : await Stage.find({ genre, location: locationLower }); ;
+  const locationTrim = location.trim();
+  const users = (type === 'band') ? await Band.find({ genre, location: { $regex: locationTrim, $options: 'i' } }) : await Stage.find({ genre, location: { $regex: locationTrim, $options: 'i' } }); ;
   res.render('search-result', { title: 'Search results', users });
 });
 

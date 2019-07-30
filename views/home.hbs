@@ -53,26 +53,20 @@
         </form>
       </div>
     </div>
-    <div  class="suggestions-container">
-      <h1>Recomended</h1>
-      {{#each searchResult}}
-      <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
-      {{/each}}
-    </div>
-   <!-- <div class="suggestions-container">
+    <div class="suggestions-container">
       <div class="suggestions-band">
         <h1>Recomended Bands</h1>
         {{#each searchResultBand}}
         <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
         {{/each}}
       </div>
-      <div class="suggestions-stage">
+      <div class="suggestions-stage hidden">
         <h1>Recomended Stages</h1>
         {{#each searchResultStage}}
         <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
         {{/each}}
       </div>
-    </div> -->
+    </div>
   {{/if}}
 </section>
 

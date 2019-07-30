@@ -290,16 +290,20 @@ button,
     background-color: blue; }
 
 .suggestions-container {
-  position: relative; }
+  position: relative;
+  margin-top: 30px; }
 
-.suggestions-band {
-  position: absolute;
-  background-color: red; }
+.suggestions-band, .suggestions-stage {
+  display: flex;
+  background-color: red;
+  width: 100%;
+  padding: 20px 25px;
+  flex-direction: column; }
 
 .suggestions-stage {
   position: absolute;
   background-color: blue;
-  display: none; }
+  top: 0; }
 
 .hidden {
   display: none; }
@@ -307,6 +311,20 @@ button,
 .invisible-input {
   visibility: hidden;
   height: 0; }
+
+/*--- Card ---*/
+.card-container {
+  display: flex;
+  margin-top: 20px;
+  cursor: pointer; }
+  .card-container img {
+    width: 100px; }
+  .card-container article {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start; }
+    .card-container article p {
+      margin: 0; }
 
 /*--- Borders ---*/
 .red-border {
