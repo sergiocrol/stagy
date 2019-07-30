@@ -34,7 +34,7 @@ router.get('/list', async (req, res, next) => {
   try {
     const sendId = req.session.currentUser._id;
     const recId = req.session.currentUser._id;
-    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: 1 }).populate('from to');
+    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: -1 }).populate('from to');
     // console.log('<<<requests>>>: ', requests);
     res.render('requests', { requests });
   } catch (error) {
