@@ -9,29 +9,6 @@ router.get('/', (req, res, next) => {
   res.redirect('/requests/list');
 });
 
-router.get('/list', async (req, res, next) => {
-  try {
-    const sendId = req.session.currentUser._id;
-    const recId = req.session.currentUser._id;
-    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: 1 }).populate('from to');
-    // console.log('<<<requests>>>: ', requests);
-    res.render('requests', { requests });
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get('/notifications', async (req, res, next) => {
-  try {
-    const sendId = req.session.currentUser._id;
-    const requests = await Request.find({ sendId }).populate('from to');
-    console.log('<<<Requests>>>:', requests[0]);
-    res.render('notifications', { requests });
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.post('/', async (req, res, next) => {
   const { recId, type } = req.query;
   const sendId = req.session.currentUser._id;
@@ -51,6 +28,46 @@ router.post('/', async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+router.get('/list', async (req, res, next) => {
+  try {
+    const sendId = req.session.currentUser._id;
+    const recId = req.session.currentUser._id;
+    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: 1 }).populate('from to');
+    // console.log('<<<requests>>>: ', requests);
+    res.render('requests', { requests });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/notifications', async (req, res, next) => {
+  try {
+    const sendId = req.session.currentUser._id;
+    const requests = await Request.find({
+      $and: [{ status: 'pending' }, { $or: [{ sendId }, { recId: sendId }] }]
+    }).populate('from to');
+    res.render('notifications', { requests });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/response/:id', async (req, res, next) => {
+  const id = req.params.id;
+  const newStatus = req.body.accept ? req.body.accept : req.body.reject;
+  try {
+    const request = await Request.findByIdAndUpdate(
+      id,
+      { $set: { status: newStatus } },
+      { new: true }
+    );
+    console.log('\n>>> Request <<<\n', request);
+  } catch (error) {
+    next(error);
+  }
+  res.redirect('/requests/notifications');
 });
 
 module.exports = router;
