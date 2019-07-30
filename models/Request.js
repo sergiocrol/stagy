@@ -4,29 +4,43 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
-const requestSchema = new Schema({
-  fromModel: String,
-  senderId: {
-    type: ObjectId,
-    ref: this.fromModel
+const requestSchema = new Schema(
+  {
+    fromModel: String,
+    sendId: {
+      type: ObjectId
+    },
+    toModel: String,
+    recId: {
+      type: ObjectId
+    },
+    message: {
+      type: String
+    },
+    date: {
+      type: String
+    },
+    status: {
+      type: String,
+      enum: ['pending', 'accepted', 'rejected', 'canceled', 'resolved'],
+      default: 'pending'
+    }
   },
-  toModel: String,
-  receiverId: {
-    type: ObjectId,
-    ref: this.toModel
-  },
-  message: {
-    type: String
-  },
-  date: {
-    type: Date
-  },
-  status: {
-    type: String,
-    enum: ['pending', 'accepted', 'rejected', 'canceled', 'resolved']
-  }
-}, {
-  timestamps: true
+  { toObject: { virtuals: true }, timestamps: true }
+);
+
+requestSchema.virtual('from', {
+  ref: doc => doc.fromModel,
+  localField: 'sendId',
+  foreignField: '_id',
+  justOne: true
+});
+
+requestSchema.virtual('to', {
+  ref: doc => doc.toModel,
+  localField: 'recId',
+  foreignField: '_id',
+  justOne: true
 });
 
 const Request = mongoose.model('Request', requestSchema);

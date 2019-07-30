@@ -17,20 +17,54 @@ const isNotLoggedIn = (req, res, next) => {
 const isSignupFormFilled = (req, res, next) => {
   const { email, password, name, location } = req.body;
   let errors = false;
-  if (!name.trim()) { req.flash('nameFormNotFilled', 'Name is required'); errors = true; } else { req.flash('errorName', name); }
-  if (!password.trim()) { req.flash('passwordFormNotFilled', 'Password is required'); errors = true; } else { req.flash('errorPassword', password); }
-  if (!email.trim()) { req.flash('emailFormNotFilled', 'Email is required'); errors = true; } else { req.flash('errorEmail', email); }
-  if (!location.trim()) { req.flash('locationFormNotFilled', 'Location is required'); errors = true; } else { req.flash('errorLocation', location); }
-  if (errors) { return res.redirect(req.originalUrl); }
+  if (!name.trim()) {
+    req.flash('nameFormNotFilled', 'Name is required');
+    errors = true;
+  } else {
+    req.flash('errorName', name);
+  }
+  if (!password.trim()) {
+    req.flash('passwordFormNotFilled', 'Password is required');
+    errors = true;
+  } else {
+    req.flash('errorPassword', password);
+  }
+  if (!email.trim()) {
+    req.flash('emailFormNotFilled', 'Email is required');
+    errors = true;
+  } else {
+    req.flash('errorEmail', email);
+  }
+  if (!location.trim()) {
+    req.flash('locationFormNotFilled', 'Location is required');
+    errors = true;
+  } else {
+    req.flash('errorLocation', location);
+  }
+  if (errors) {
+    return res.redirect(req.originalUrl);
+  }
   next();
 };
 
 const isLoginFormFilled = (req, res, next) => {
   const { email, password } = req.body;
   let errors = false;
-  if (!password.trim()) { req.flash('passwordFormNotFilled', 'Password is required'); errors = true; } else { req.flash('errorPassword', password); }
-  if (!email.trim()) { req.flash('emailFormNotFilled', 'Email is required'); errors = true; } else { req.flash('errorEmail', email); }
-  if (errors) { return res.redirect(req.originalUrl); }
+  if (!password.trim()) {
+    req.flash('passwordFormNotFilled', 'Password is required');
+    errors = true;
+  } else {
+    req.flash('errorPassword', password);
+  }
+  if (!email.trim()) {
+    req.flash('emailFormNotFilled', 'Email is required');
+    errors = true;
+  } else {
+    req.flash('errorEmail', email);
+  }
+  if (errors) {
+    return res.redirect(req.originalUrl);
+  }
   next();
 };
 
@@ -53,10 +87,13 @@ const isValidEmail = (req, res, next) => {
 
 const isValidPassword = (req, res, next) => {
   const { password } = req.body;
-  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/; // eslint-disable-line
   console.log(re.test(password));
   if (!re.test(password)) {
-    req.flash('wrongPasswordFormat', 'Password must contain 6 characters. At least 1 uppercase, 1 number and 1 special character');
+    req.flash(
+      'wrongPasswordFormat',
+      'Password must contain 6 characters. At least 1 uppercase, 1 number and 1 special character'
+    );
     return res.redirect(req.originalUrl);
   }
   next();
