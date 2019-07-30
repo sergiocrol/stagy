@@ -26,7 +26,10 @@ small {
   text-transform: capitalize; }
 
 .main-section {
-  padding: 15px 25px; }
+  padding: 15px 25px;
+  height: 100%;
+  max-height: calc(100vh - 100px);
+  overflow: scroll; }
 
 #main-header,
 footer {
@@ -232,7 +235,8 @@ button,
       text-align: center; }
     .request-section .request-popup label {
       margin-top: 10px; }
-    .request-section .request-popup #date, .request-section .request-popup #message {
+    .request-section .request-popup #date,
+    .request-section .request-popup #message {
       margin: 10px 0;
       border: 1px solid #a6a6a6;
       border-radius: 4px;
@@ -272,12 +276,14 @@ button,
 .searchbox-container {
   position: relative; }
 
-.search-band, .search-stage {
+.search-band,
+.search-stage {
   display: flex;
   background-color: red;
   width: 100%;
   padding: 20px 25px; }
-  .search-band form, .search-stage form {
+  .search-band form,
+  .search-stage form {
     width: 100%; }
 
 .search-stage {
@@ -300,7 +306,8 @@ button,
   position: relative;
   margin-top: 30px; }
 
-.suggestions-band, .suggestions-stage {
+.suggestions-band,
+.suggestions-stage {
   display: flex;
   background-color: red;
   width: 100%;
@@ -332,6 +339,56 @@ button,
     align-content: flex-start; }
     .card-container article p {
       margin: 0; }
+
+#notifications h1 {
+  color: #8f4c00;
+  margin-top: 5px;
+  text-align: center; }
+
+#notifications .request-card {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px; }
+  #notifications .request-card h1,
+  #notifications .request-card p {
+    margin: 0;
+    line-height: 1.75;
+    text-align: left; }
+  #notifications .request-card .card-image {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 15px;
+    border: 3px solid #f6911e;
+    border-radius: 10px; }
+  #notifications .request-card .card-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    #notifications .request-card .card-buttons .responses {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      font-size: 2.25em; }
+      #notifications .request-card .card-buttons .responses a {
+        color: green;
+        cursor: pointer;
+        margin-left: 15px;
+        cursor: pointer; }
+      #notifications .request-card .card-buttons .responses .reject {
+        color: #b40000; }
+    #notifications .request-card .card-buttons button {
+      display: flex;
+      align-self: flex-end;
+      margin-top: auto;
+      padding: 5px;
+      cursor: pointer; }
+
+#notifications li {
+  list-style: none; }
 
 /*--- Borders ---*/
 .red-border {

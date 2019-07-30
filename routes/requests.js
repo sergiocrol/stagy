@@ -6,12 +6,27 @@ const router = express.Router();
 const Request = require('../models/Request');
 const moment = require('moment');
 
-router.get('/', async (req, res, next) => {
+router.get('/', (req, res, next) => {
+  res.redirect('/requests/list');
+});
+
+router.get('/list', async (req, res, next) => {
   try {
     const sendId = req.session.currentUser._id;
     const requests = await Request.find({ sendId }).populate('from to');
     console.log('<<<Requests>>>:', requests);
     res.render('requests', { requests });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/notifications', async (req, res, next) => {
+  try {
+    const sendId = req.session.currentUser._id;
+    const requests = await Request.find({ sendId }).populate('from to');
+    console.log('<<<Requests>>>:', requests[0]);
+    res.render('notifications', { requests });
   } catch (error) {
     next(error);
   }
@@ -32,7 +47,7 @@ router.post('/', async (req, res, next) => {
       message,
       date: moment(date).format('MMM Do YY')
     });
-    res.redirect('/requests');
+    res.redirect(req.get('referer'));
   } catch (error) {
     next(error);
   }

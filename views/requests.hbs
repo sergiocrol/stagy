@@ -1,12 +1,14 @@
-<h1>Requests</h1>
-{{#each requests}}
-<article class="request-card">
-  <ul>
-    <li>From: {{fromModel}}</li>
-    <li>From: {{toModel}}</li>
-    <li>Message: {{message}}</li>
-    <li>Date: {{date}}</li>
-    <li class="cap">Status: {{status}}</li>
-  </ul>
-</article>
-{{/each}}
+<section class="main-section" id="requests-list">
+  <h1>Requests</h1>
+  {{#each requests}}
+  <article class="request-card">
+    <ul>
+      <li>From: {{fromModel}}</li>
+      <li>From: {{toModel}}</li>
+      <li>Message: {{message}}</li>
+      <li>Date: {{date}}</li>
+      <li class="cap">Status: {{status}}</li>
+    </ul>
+  </article>
+  {{/each}}
+</section>

@@ -1,5 +1,7 @@
 $orange: #f6911e;
 $dark-orange: #8f4c00;
+$border-color: #a6a6a6;
+$red: #b40000;
 
 * {
   box-sizing: border-box;
@@ -36,6 +38,9 @@ small {
 
 .main-section {
   padding: 15px 25px;
+  height: 100%;
+  max-height: calc(100vh - 100px);
+  overflow: scroll;
 }
 
 #main-header,
@@ -92,7 +97,7 @@ form {
   & input,
   & select {
     margin: 10px 0;
-    border: 1px solid #a6a6a6;
+    border: 1px solid $border-color;
     border-radius: 4px;
     padding: 5px;
     font-size: 0.9rem;
@@ -277,9 +282,10 @@ button,
     & label {
       margin-top: 10px;
     }
-    & #date, & #message {
+    & #date,
+    & #message {
       margin: 10px 0;
-      border: 1px solid #a6a6a6;
+      border: 1px solid $border-color;
       border-radius: 4px;
       padding: 5px;
       font-size: 0.9rem;
@@ -327,7 +333,8 @@ button,
   position: relative;
 }
 
-.search-band, .search-stage {
+.search-band,
+.search-stage {
   display: flex;
   background-color: red;
   width: 100%;
@@ -357,13 +364,13 @@ button,
   }
 }
 
-
 .suggestions-container {
   position: relative;
   margin-top: 30px;
 }
 
-.suggestions-band, .suggestions-stage {
+.suggestions-band,
+.suggestions-stage {
   display: flex;
   background-color: red;
   width: 100%;
@@ -402,6 +409,67 @@ button,
     & p {
       margin: 0;
     }
+  }
+}
+
+#notifications {
+  h1 {
+    color: $dark-orange;
+    margin-top: 5px;
+    text-align: center;
+  }
+  & .request-card {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    h1,
+    p {
+      margin: 0;
+      line-height: 1.75;
+      text-align: left;
+    }
+    & .card-image {
+      width: 75px;
+      height: 75px;
+      background-size: cover;
+      background-position: center;
+      margin-right: 15px;
+      border: 3px solid $orange;
+      border-radius: 10px;
+    }
+    & .card-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      & .responses {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        
+        font-size: 2.25em;
+        & a {
+          color: green;
+          cursor: pointer;
+          margin-left: 15px;
+          cursor: pointer;
+        }
+        & .reject {
+          color: $red;
+        }
+      }
+      & button {
+        display: flex;
+        align-self: flex-end;
+        margin-top: auto;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  & li {
+    list-style: none;
   }
 }
 
