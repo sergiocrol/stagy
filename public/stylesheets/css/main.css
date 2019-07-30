@@ -372,9 +372,13 @@ button,
     #notifications .request-card .card-buttons .responses {
       display: flex;
       justify-content: space-around;
-      margin-top: 10px;
-      font-size: 2.25em; }
-      #notifications .request-card .card-buttons .responses a {
+      margin-top: 10px; }
+      #notifications .request-card .card-buttons .responses form {
+        flex-direction: row; }
+      #notifications .request-card .card-buttons .responses button {
+        font-size: 2.25em;
+        background: none;
+        border: none;
         color: green;
         cursor: pointer;
         margin-left: 15px;

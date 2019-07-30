@@ -4,12 +4,18 @@
   <section class="card-info">
     <h1>{{from.name}} </h1>
     <p>{{from.location}}</p>
-    <p>{{date}}</p>
+    <p class="cap purple-border">{{status}}</p>
   </section>
   <section class="card-buttons">
     <div class="responses">
-      <a class="accept" href='/request/accept'><i class="fas fa-check"></i></a>
-      <a class="reject" href='/request/reject'><i class="fas fa-times"></i></a>
+      <form action="/requests/response/{{_id}}" method="POST">
+        <button class="accept" type="submit" name="accept" value="accepted">
+          <i class="fas fa-check"></i>
+        </button>
+        <button class="reject" type="submit" name="reject" value="rejected">
+          <i class="fas fa-times"></i>
+        </button>
+      </form>
     </div>
     <button><i class="far fa-envelope"></i></button>
   </section>

@@ -448,9 +448,13 @@ button,
         display: flex;
         justify-content: space-around;
         margin-top: 10px;
-        
-        font-size: 2.25em;
-        & a {
+        & form {
+          flex-direction: row;
+        }
+        & button {
+          font-size: 2.25em;
+          background: none;
+          border: none;
           color: green;
           cursor: pointer;
           margin-left: 15px;
