@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
+const moment = require('moment');
 
 require('dotenv').config();
 
@@ -51,6 +52,10 @@ app.use((req, res, next) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
+hbs.registerHelper('dateFormat', date => {
+  const newDate = date.toString();
+  return moment(newDate).format('MMM Do YY');
+});
 
 app.use(logger('dev'));
 app.use(express.json());
