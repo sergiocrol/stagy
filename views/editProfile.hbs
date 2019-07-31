@@ -1,8 +1,11 @@
 <section class="main-section" id="edit-profile">
   <form action="/profile/edit" method="POST" enctype="multipart/form-data">
-    <div class="image-wrapper red-border">
-      <img src="{{currentUser.profilePicture}}" alt="{{currentUser.name}}">
+    <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
     </div>
+
+    {{!-- <section class="user-image">
+    </section> --}}
+    
     <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{currentUser.name}}">
@@ -32,9 +35,9 @@
     <a class="add-genre-button">add</a>
     <div class="genre-container">
       {{#if currentUser.genre}}
-        {{#each currentUser.genre}}
-          <button type="button">{{this}}</button>
-        {{/each}}
+      {{#each currentUser.genre}}
+      <button type="button">{{this}}</button>
+      {{/each}}
       {{/if}}
     </div>
     <input class="genre-list" type="text" name="genreList" id="genreList">
@@ -49,7 +52,7 @@
       <input type="password" name="rePassword" id="re-password">
     </div>
     {{#if data}}{{data.password}}{{/if}}
-     {{#if data}}{{data.differentPasswords}}{{/if}}
+    {{#if data}}{{data.differentPasswords}}{{/if}}
     <button type="submit">Save</button>
     <a href="/profile">Cancel</a>
   </form>
@@ -57,4 +60,3 @@
 
 
 <script src="../javascripts/updateImage.js"></script>
-
