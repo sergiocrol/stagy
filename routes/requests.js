@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+  if (!req.session.currentUser) { res.redirect('/auth/login/'); };
   const { recId, type } = req.query;
   const sendId = req.session.currentUser._id;
   const { date, message } = req.body;
@@ -31,6 +32,7 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/list', async (req, res, next) => {
+  if (!req.session.currentUser) { res.redirect('/auth/login/'); };
   try {
     const sendId = req.session.currentUser._id;
     const requests = await Request.find({ $and: [
@@ -43,6 +45,7 @@ router.get('/list', async (req, res, next) => {
 });
 
 router.get('/notifications', async (req, res, next) => {
+  if (!req.session.currentUser) { res.redirect('/auth/login/'); };
   try {
     const sessionId = req.session.currentUser._id;
     const requests = await Request.find({
