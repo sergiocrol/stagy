@@ -506,3 +506,18 @@ button,
     .search-top-buttons .searchbox-button:last-child {
       border-radius: 0 10px 0 0;
       background-color: #8f4c00; }
+
+.request-card button {
+  align-self: end;
+  padding: 5px 6px;
+  margin-top: 10px; }
+
+.request-card div {
+  display: flex;
+  flex-direction: column; }
+  .request-card div button {
+    margin-top: auto;
+    padding: 5px 6px; }
+
+.card-info h1 a {
+  color: #8f4c00; }

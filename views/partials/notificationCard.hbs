@@ -4,7 +4,7 @@
   <section class="card-info">
     <h1>{{#if (fromTo from.userType)}}<a href="/users/{{to._id}}/?type={{to.userType}}">{{to.name}}</a>{{else}}<a href="/users/{{from._id}}/?type={{from.userType}}">{{from.name}}</a>{{/if}} </h1>
     <p>{{#if (fromTo from.userType)}}{{to.location}}{{else}}{{from.location}}{{/if}}</p>
-    {{#unless (bandLikeState from.userType)}}<p class="cap purple-border">{{status}}</p>{{/unless}}
+    {{#unless (bandLikeState from.userType)}}<p class="cap">{{status}}</p>{{/unless}}
   </section>
   {{#if (fromTo from.userType)}}
     <p>sent</p>
@@ -16,8 +16,10 @@
     {{/unless}}
   {{else}}
     {{#if (bandLike from.userType)}}
+    <div>
       <p>LIKE!</p>
       {{#if (containsMessage message)}}<button><i class="far fa-envelope"></i></button>{{/if}}
+    </div>
     {{else}}
       <section class="card-buttons">
         <div class="responses">

@@ -621,3 +621,23 @@ button,
   }
 
 }
+
+.request-card {
+  & button {
+    align-self: end;
+    padding: 5px 6px;
+    margin-top: 10px;
+  }
+  & div {
+    display: flex;
+    flex-direction: column;
+    & button {
+      margin-top: auto;
+      padding: 5px 6px;
+    }
+  }
+}
+
+.card-info h1 a {
+  color: $dark-orange;
+}
