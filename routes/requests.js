@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const Request = require('../models/Request');
+const { signinRequired } = require('../middlewares/authMiddlewares');
 
 router.get('/', (req, res, next) => {
   res.redirect('/requests/list');
@@ -31,7 +32,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.get('/list', async (req, res, next) => {
+router.get('/list', signinRequired, async (req, res, next) => {
   if (!req.session.currentUser) { res.redirect('/auth/login/'); };
   try {
     const sendId = req.session.currentUser._id;
@@ -44,8 +45,7 @@ router.get('/list', async (req, res, next) => {
   }
 });
 
-router.get('/notifications', async (req, res, next) => {
-  if (!req.session.currentUser) { res.redirect('/auth/login/'); };
+router.get('/notifications', signinRequired, async (req, res, next) => {
   try {
     const sessionId = req.session.currentUser._id;
     const requests = await Request.find({
@@ -56,20 +56,13 @@ router.get('/notifications', async (req, res, next) => {
     }).populate('from to');
     const userBand = req.session.currentUser.userType === 'band' ? 'userBand' : '';
 
-    // console.log('\n>>> !!! <<<\n\n');
-    // console.log(requests);
-
-    // console.log('sessionId:', sessionId);
-    // console.log('requests.sendId:', requests.sendId);
-    // console.log('fromModel:', requests.fromModel);
-
     res.render('notifications', { requests, userBand });
   } catch (error) {
     next(error);
   }
 });
 
-router.post('/response/:id', async (req, res, next) => {
+router.post('/response/:id', signinRequired, async (req, res, next) => {
   const id = req.params.id;
   const newStatus = req.body.accept ? req.body.accept : req.body.reject;
   try {
@@ -85,7 +78,7 @@ router.post('/response/:id', async (req, res, next) => {
   res.redirect('/requests/notifications');
 });
 
-router.post('/delete/:id', async (req, res, next) => {
+router.post('/delete/:id', signinRequired, async (req, res, next) => {
   const id = req.params.id;
   try {
     await Request.deleteOne({ _id: id });

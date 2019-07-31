@@ -377,8 +377,8 @@ button,
 
 #notifications .request-card, #requests-list .request-card {
   padding: 15px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
   margin-bottom: 10px; }
   #notifications .request-card h1,
@@ -424,6 +424,23 @@ button,
 
 #notifications li, #requests-list li {
   list-style: none; }
+
+.message-container {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  transition: .2s all linear; }
+  .message-container.active {
+    transition: .2s all linear;
+    height: 30px; }
+  .message-container p {
+    padding: 10px 0;
+    color: #645f5f; }
+
+.card-content {
+  display: flex; }
+  .card-content .card-info {
+    width: 60%; }
 
 /*--- Notifications ---*/
 .request-container {
@@ -512,12 +529,9 @@ button,
   padding: 5px 6px;
   margin-top: 10px; }
 
-.request-card div {
-  display: flex;
-  flex-direction: column; }
-  .request-card div button {
-    margin-top: auto;
-    padding: 5px 6px; }
+.request-card div button {
+  margin-top: auto;
+  padding: 5px 6px; }
 
 .card-info h1 a {
   color: #8f4c00; }

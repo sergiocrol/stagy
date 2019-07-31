@@ -26,9 +26,9 @@ router.get('/', (req, res, next) => {
 
 router.get('/home', async (req, res, next) => {
   const user = req.session.currentUser;
-  let data = { title: 'welcome', genreList };
+  let data = { genreList };
   if (user) {
-    data = { title: user.userType, genreList };
+    data = { genreList };
     console.log(user.userType);
     const model = user.userType === 'band' ? Stage : Band;
     data.searchResult = await model.find({});

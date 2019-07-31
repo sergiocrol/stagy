@@ -1,10 +1,13 @@
 <article class="request-card">
-  <section class="card-image" style="background-image: url({{#if (fromTo from.userType)}}{{to.profilePicture}}{{else}}{{from.profilePicture}}{{/if}}">
-  </section>
-  <section class="card-info">
-    <h1>{{#if (fromTo from.userType)}}<a href="/users/{{to._id}}/?type={{to.userType}}">{{to.name}}</a>{{else}}<a href="/users/{{from._id}}/?type={{from.userType}}">{{from.name}}</a>{{/if}}</h1>
-    <p>Event date: {{dateFormat date}}</p>
-    <p class="cap">{{status}}</p>
-  </section>
-  {{#if (containsMessage message)}}<button><i class="far fa-envelope"></i></button>{{/if}}
+  <div class="card-content">
+    <section class="card-image" style="background-image: url({{#if (fromTo from.userType)}}{{to.profilePicture}}{{else}}{{from.profilePicture}}{{/if}}">
+    </section>
+    <section class="card-info">
+      <h1>{{#if (fromTo from.userType)}}<a href="/users/{{to._id}}/?type={{to.userType}}">{{to.name}}</a>{{else}}<a href="/users/{{from._id}}/?type={{from.userType}}">{{from.name}}</a>{{/if}}</h1>
+      <p>Event: {{dateFormat date}}</p>
+      <p class="cap">{{status}}</p>
+    </section>
+    {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
+  </div>
+  <div class="message-container"><p>{{message}}</p></div>
 </article>

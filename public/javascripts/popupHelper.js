@@ -6,6 +6,7 @@ const main = () => {
   const closePopup = document.querySelector('.close-popup');
 
   requestButton.addEventListener('click', (event) => {
+    if (requestButton.id === '') { window.location.replace('/auth/login/'); return; }
     event.preventDefault();
     requestPopup.classList.remove('popup-hidden');
   });
