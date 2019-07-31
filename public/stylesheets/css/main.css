@@ -343,7 +343,8 @@ button,
 
 .suggestions-stage {
   position: absolute;
-  top: 0; }
+  top: 0;
+  background-color: white; }
   .suggestions-stage article {
     border-color: #8f4c00; }
 
