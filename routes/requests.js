@@ -44,11 +44,23 @@ router.get('/list', async (req, res, next) => {
 
 router.get('/notifications', async (req, res, next) => {
   try {
-    const sendId = req.session.currentUser._id;
+    const sessionId = req.session.currentUser._id;
     const requests = await Request.find({
-      $and: [{ status: 'pending' }, { $or: [{ sendId }, { recId: sendId }] }]
+      $and: [
+        { status: 'pending' },
+        { $or: [{ sendId: sessionId }, { recId: sessionId }] }
+      ]
     }).populate('from to');
-    res.render('notifications', { requests });
+    const userBand = req.session.currentUser.userType === 'band' ? 'userBand' : '';
+
+    // console.log('\n>>> !!! <<<\n\n');
+    // console.log(requests);
+
+    // console.log('sessionId:', sessionId);
+    // console.log('requests.sendId:', requests.sendId);
+    // console.log('fromModel:', requests.fromModel);
+
+    res.render('notifications', { requests, userBand });
   } catch (error) {
     next(error);
   }
