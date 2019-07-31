@@ -1,72 +1,77 @@
 <section class="main-section" id="home-section">
+  {{#unless currentUser}}
+  <div class="search-top-buttons">
+    <a class="searchbox-button band">Find a band</a>
+    <a class="searchbox-button stage">Find a stage</a>
+  </div>
+  <div class="searchbox-container">
+  {{/unless}}
   {{#if currentUser}}
-    <div class="searchbox-container">
-      <form action="/users/" method="GET">
-        <label for="genre">Genres</label>
-        <select name="genre" id="genre">
-          {{#each genreList}}
-          <option value="{{this}}">{{this}}</option>
-          {{/each}}
-        </select>
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location">
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <div  class="suggestions-container">
-      <h1>Recomended</h1>
-      {{#each searchResult}}
-       {{> userCard}}
-      {{/each}}
-    </div>
+  <div class="searchbox-container logged">
+    <form class="search-band" action="/users/" method="GET">
   {{else}}
-    <div class="search-top-buttons">
-      <a class="searchbox-button band">Find a band</a>
-      <a class="searchbox-button stage">Find a stage</a>
-    </div>
-    <div class="searchbox-container">
-      <div class="search-band">
-          <form action="/users/type/band" method="GET">
-            <label for="genre">Genres</label>
-            <select name="genre" id="genre">
-              {{#each genreList}}
-              <option value="{{this}}">{{this}}</option>
-              {{/each}}
-            </select>
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location">
-            <button type="submit">Search Band</button>
-          </form>
-        </div>
-          <div class="search-stage hidden">
-          <form action="/users/type/stage" method="GET">
-            <label for="genre">Genres</label>
-            <select name="genre" id="genre">
-              {{#each genreList}}
-              <option value="{{this}}">{{this}}</option>
-              {{/each}}
-            </select>
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location">
-            <button type="submit">Search Stage</button>
-        </form>
-      </div>
-    </div>
-    <div class="suggestions-container">
-      <div class="suggestions-band">
-        <h1>Recomended Bands</h1>
-        {{#each searchResultBand}}
-          {{> userCard}}
-        {{/each}}
-      </div>
-      <div class="suggestions-stage hidden">
-        <h1>Recomended Stages</h1>
-        {{#each searchResultStage}}
-          {{> userCard}}
-        {{/each}}
-      </div>
-    </div>
+    <form class="search-band" action="/users/type/band" method="GET">
   {{/if}}
+      <label for="genre">Genres</label>
+      <select name="genre" id="genre">
+        <option value="">- Select an option</option>
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <label for="location">Location</label>
+      <input type="text" name="location" id="location">
+      <button type="submit">Search Band</button>
+    </form>
+
+    {{#unless currentUser}}
+    <form class="search-stage hidden" action="/users/type/stage" method="GET">
+      <label for="genre">Genres</label>
+      <select name="genre" id="genre">
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <label for="location">Location</label>
+      <input type="text" name="location" id="location">
+      <button type="submit">Search Stage</button>
+    </form>
+    {{/unless}}
+  </div>
+
+  <div class="suggestions-container">
+    <div class="suggestions-band">
+      {{#if currentUser}}
+       <h1>Recomended </h1>
+      {{#if searchResult}}
+      {{#each searchResult}}
+      {{> userCard}}
+      {{/each}}
+      {{else}}
+      <p class="no-results">No recomendations for yor right now :&#40;</p>
+      {{/if}}
+      {{else}}
+      <h1>Recomended Bands</h1>
+      {{#if searchResultBand}}
+      {{#each searchResultBand}}
+      {{> userCard}}
+      {{/each}}
+      {{else}}
+      <p class="no-results">No recomendations for yor right now :&#40;</p>
+      {{/if}}
+    </div>
+    <div class="suggestions-stage hidden">
+      <h1>Recomended Stages</h1>
+      {{#if searchResultStage}}
+      {{#each searchResultStage}}
+        {{> userCard}}
+      {{/each}}
+       {{else}}
+      <p class="no-results">No recomendations for yor right now :&#40;</p>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
 </section>
 
 <script src='../javascripts/searchBox.js'></script>

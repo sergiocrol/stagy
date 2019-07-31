@@ -12,7 +12,6 @@ const Stage = require('../models/Stage');
 TODO:
   - Revisar historial de navegación para el back-button
   - Cómo conseguir el nombre de la colección de un documento
-
 FIXME:
 
 */
@@ -29,7 +28,6 @@ router.get('/home', async (req, res, next) => {
   let data = { genreList };
   if (user) {
     data = { genreList };
-    console.log(user.userType);
     const model = user.userType === 'band' ? Stage : Band;
     data.searchResult = await model.find({});
   } else {

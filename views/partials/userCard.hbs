@@ -1,8 +1,11 @@
 <article class="card-container" id="/users/{{this._id}}/?type={{this.userType}}">
-  <img src="{{profilePicture}}" alt="Profile picture of {{name}}">
+  <div class="image-wrapper" style="background-image: url({{profilePicture}})"></div>
   <div>
-    <p>{{name}}</p>
-    <p>{{rating}} of {{reviewers}}</p>
+    <h2>{{name}}</h2>
     <p>{{tagLine}}</p>
+    <p>A {{this.userType}} in {{this.location}}</p>
+    <section class="genres">
+      <p>{{this.genre.[0]}}</p>
+    </section>
   </div>
 </article>
