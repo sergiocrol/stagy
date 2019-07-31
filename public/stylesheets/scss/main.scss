@@ -1,5 +1,6 @@
 $orange: #f6911e;
-$dark-orange: #8f4c00;
+$dark-orange: #c9710d;
+$heading-orange: #8f4c00;
 $border-color: #a6a6a6;
 $red: #b40000;
 $ochre: #a5432a;
@@ -18,12 +19,20 @@ body {
   height: 100vh;
 }
 
+h1,
+h2,
+h3,
+.title {
+  color: $heading-orange;
+  font-weight: bold;
+}
+
 p {
   text-align: left;
 }
 
 a {
-  color: #0095cf;
+  color: #1fa0d3;
   text-decoration: none;
   cursor: pointer;
 }
@@ -34,12 +43,19 @@ small {
   color: #b10000;
 }
 
+hr {
+  margin: 0 auto;
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+}
+
 .cap {
   text-transform: capitalize;
 }
 
 .main-section {
-  padding: 15px 25px;
+  padding: 20px 25px 15px;
   height: 100%;
   max-height: calc(100vh - 100px);
   overflow: auto;
@@ -72,8 +88,8 @@ footer {
     margin-top: 7px;
   }
   & .header-image {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 3px solid $dark-orange;
     background-size: cover;
@@ -118,13 +134,17 @@ form {
     border-radius: 4px;
     padding: 5px;
     font-size: 0.9rem;
-    height: 28px;
+    height: 30px;
+  }
+  & select {
+    background-color: #dfdfdf;
   }
 }
 
 #sign-up-in,
 #edit-profile {
-  width: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
   margin: 0 auto;
   & h1 {
     color: $orange;
@@ -179,10 +199,10 @@ button,
   text-align: center;
   justify-content: space-evenly;
   & h1 {
-    font-size: 3.5em;
+    font-size: 3.2em;
     line-height: 1.5;
     margin: 0;
-    transform: rotate(-10deg);
+    transform: rotate(-5deg);
   }
   & p {
     text-align: center;
@@ -200,14 +220,17 @@ button,
 
 /*--- Profile Page ---*/
 
-.user-header {
-  display: flex;
-}
-
-.user-image {
-  display: flex;
-  width: 30%;
-  justify-content: flex-start;
+#user-profile {
+  & .user-header {
+    display: flex;
+    margin-bottom: 15px;
+    .user-image {
+      width: 120px;
+      & .image-wrapper {
+        height: 150px;
+      }
+    }
+  }
 }
 
 .user-summary {
@@ -216,8 +239,7 @@ button,
   flex-direction: column;
   margin-left: 5%;
   & h1 {
-    color: var(--dark-orange);
-    margin: 10px 0;
+    margin: 10px 0 6px;
   }
   & p {
     margin: 5px 0;
@@ -258,8 +280,8 @@ button,
     margin: 0;
     padding-right: 10px;
   }
-  & span {
-    background-color: $orange;
+  & .genres {
+    background-color: $ochre;
     padding: 5px 12px;
     border-radius: 20px;
     color: white;
@@ -268,9 +290,70 @@ button,
 }
 
 #edit-profile {
-  margin-bottom: 65px;
+  & .image-section {
+    display: flex;
+    margin-bottom: 10px;
+    & .input-file {
+      font-size: 0.1px;
+      border: none;
+      background-color: $orange;
+      margin: auto 0 0 15px;
+      padding: 0;
+      width: 90px;
+      display: flex;
+      color: white;
+      &:after {
+        content: 'Choose file';
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
   & a {
     text-align: center;
+  }
+  .genre-container {
+    margin-bottom: 5px;
+    & .genre {
+      background-color: $ochre;
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: white;
+      margin: 5px 3px 2px 0;
+      border: none;
+    }
+  }
+  & .genres-select,
+  .save {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & select,
+    button {
+      margin-right: 10px;
+    }
+    & select {
+      width: 100%;
+    }
+  }
+  & .title {
+    text-align: left;
+  }
+  & .edit-password {
+    display: flex;
+    justify-content: space-between;
+    & input {
+      display: flex;
+      flex-direction: column;
+      width: 48%;
+      font-size: 0.9em;
+    }
+  }
+  & hr {
+    margin: 5px auto;
+  }
+  & button {
+    margin: 0;
   }
 }
 
@@ -284,16 +367,11 @@ button,
   }
 }
 
-.input-file {
-  border: none;
-  margin: 15px 0;
-  padding: 0;
-  align-self: center;
-}
-
 .genre-list {
   height: 1px;
   visibility: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .request-section {
@@ -377,43 +455,48 @@ button,
   display: flex;
   background-color: $orange;
   width: 100%;
-  padding: 20px 25px;
+  padding: 10px 25px;
   border-radius: 0 0 10px 10px;
-
-  & form {
-    width: 100%;
-    & * {
-      margin-top: 6px;
-    }
-    & button {
-      background-color: white;
-      color: $dark-orange;
-      padding: 10px 18px;
-      font-weight: bold;
-    }
+  width: 100%;
+  & * {
+    margin: 5px 0 2px;
+  }
+  & button {
+    background-color: white;
+    color: $dark-orange;
+    border-width: 2px;
+    border-color: $dark-orange;
+    padding: 10px 18px;
+    font-weight: bold;
+    margin: 10px 0 3px;
+  }
+  .logged & {
+    border-radius: 10px;
   }
 }
 
 .search-stage {
-  position: absolute;
   background-color: $dark-orange;
   top: 0;
+  & button {
+    color: $orange;
+    border-color: $orange;
+  }
 }
 
 .suggestions-container {
   position: relative;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .suggestions-band,
 .suggestions-stage {
   display: flex;
   width: 100%;
-  padding: 0 15px;
   flex-direction: column;
   background-color: white;
   & h1 {
-    margin: 5px 0;
+    margin: 0;
   }
   & article {
     border: 5px solid #f6911e;
@@ -426,7 +509,6 @@ button,
 }
 
 .suggestions-stage {
-  position: absolute;
   top: 0;
   height: 100%;
   background-color: white;
@@ -449,16 +531,27 @@ button,
 .card-container {
   display: flex;
   margin-top: 20px;
-  cursor: pointer;
-  & img {
-    width: 100px;
+  & .image-wrapper {
+    width: 95px;
+    height: 120px;
+    margin-right: 10px;
   }
-  & article {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    & p {
-      margin: 0;
+  h2,
+  p {
+    margin: 0 0 10px;
+  }
+  h2 {
+    margin-top: 2px;
+    font-size: 1.15em;
+  }
+  & .genres {
+    color: $ochre;
+    & span:after {
+      content: ',';
+      color: black;
+    }
+    & span:last-child:after {
+      content: '';
     }
   }
 }
@@ -655,4 +748,8 @@ button,
 
 .card-info h1 a {
   color: $dark-orange;
+}
+
+.no-results {
+  color: gray;
 }

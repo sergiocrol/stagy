@@ -1,60 +1,59 @@
 <section class="main-section" id="edit-profile">
   <form action="/profile/edit" method="POST" enctype="multipart/form-data">
-    <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
-    </div>
-
-    {{!-- <section class="user-image">
-    </section> --}}
-    
-    <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
-    <label for="name">Name:</label>
+    <section class="image-section">
+      <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
+      </div>
+      <input class="input-file" type="file" name="edit-photo" id="edit-photo" />
+    </section>
+    <label class="title" for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{currentUser.name}}">
 
-    <label for="tagLine">Tagline:</label>
+    <label class="title" for="tagLine">Tagline:</label>
     <input type="text" name="tagLine" id="tagLine" value="{{currentUser.tagLine}}"
       placeholder="A catchy phrase about you">
 
-    <label for="location">Location:</label>
-    <input class="cap" type="text" name="location" id="location" value="{{currentUser.location}}" placeholder="Barcelona">
+    <label class="title" for="location">Location:</label>
+    <input class="cap" type="text" name="location" id="location" value="{{currentUser.location}}"
+      placeholder="Barcelona">
 
-    <label for="description">Description:</label>
+    <label class="title" for="description">Description:</label>
     <input type="text" name="description" id="description" value="{{currentUser.description}}"
       placeholder="Tell the world about you">
 
     {{#if hasAddress}}
-    <label for="address">Address:</label>
+    <label class="title" for="address">Address:</label>
     <input type="text" name="address" id="address" value="{{currentUser.address}}" placeholder="St Name, 123">
     {{/if}}
 
-    <label for="genres">Genres:</label>
-    <select name="genres" id="genres">
-      {{#each genreList}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-    <a class="add-genre-button">add</a>
+    <label class="title" for="genres">Genres:</label>
+    <section class="genres-select">
+      <select name="genres" id="genres">
+        {{#each genreList}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <a class="add-genre-button">add</a>
+    </section>
     <div class="genre-container">
       {{#if currentUser.genre}}
       {{#each currentUser.genre}}
-      <button type="button">{{this}}</button>
+      <button class="genre" type="button">{{this}}</button>
       {{/each}}
       {{/if}}
     </div>
     <input class="genre-list" type="text" name="genreList" id="genreList">
-
-
-    <div class="edit-password">
-      <label for="password1">Change password:</label>
-      <input type="password" name="password" id="password1">
-    </div>
-    <div class="edit-password">
-      <label for="re-password">Repeat new password:</label>
-      <input type="password" name="rePassword" id="re-password">
-    </div>
-    {{#if data}}{{data.password}}{{/if}}
-    {{#if data}}{{data.differentPasswords}}{{/if}}
-    <button type="submit">Save</button>
-    <a href="/profile">Cancel</a>
+    <hr>
+    <p class="title">Change password</p>
+    <section class="edit-password">
+      <input type="password" name="password" id="password1" placeholder="New password">
+      <input type="password" name="rePassword" id="re-password" placeholder="Repeat password">
+      {{#if data}}{{data.password}}{{/if}}
+      {{#if data}}{{data.differentPasswords}}{{/if}}
+    </section>
+    <section class="save">
+      <button type="submit">Save</button>
+      <a href="/profile">Cancel</a>
+    </section>
   </form>
 </section>
 

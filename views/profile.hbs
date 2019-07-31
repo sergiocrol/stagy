@@ -1,4 +1,4 @@
-<section class="main-section" id="personal-profile">
+<section class="main-section" id="user-profile">
   <header class="user-header">
     <section class="user-image">
       <div class="image-wrapper" style="background-image: url({{currentUser.profilePicture}}">
@@ -17,15 +17,15 @@
     </section>
   </header>
   <hr>
-  <p>Description: {{currentUser.description}}</p>
-  <p class="cap">Location: {{currentUser.location}}</p>
+  <p><span class="title">Description:</span> {{currentUser.description}}</p>
+  <p class="cap"><span class="title">Location:</span> {{currentUser.location}}</p>
   {{#if hasAddress}}
-  <p>Address: {{currentUser.address}}</p>
+  <p><span class="title">Address:</span> {{currentUser.address}}</p>
   {{/if}}
   <section class="user-genres">
-    <p>Genres:</p>
+    <p><span class="title">Genres:</span></p>
     {{#each currentUser.genre}}
-    <span>{{this}}</span>
+    <span class="genres">{{this}}</span>
     {{/each}}
   </section>
   {{#if currentUser.otherLocations}}
