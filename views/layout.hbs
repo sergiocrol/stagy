@@ -8,28 +8,32 @@
   <link rel='stylesheet' href='/stylesheets/css/main.css' />
   <script src="https://kit.fontawesome.com/9ad7204079.js"></script>
 </head>
+
 <body>
   <header id="main-header">
     <nav>
+      {{#if currentUser}}
       <i class="fas fa-chevron-left"></i>
+      {{/if}}
       <a class="logo" href="/home"><img src="/images/stagy-logo.png" alt="Stagy Logo"></a>
-      <div class="header-image" style="background-image: url({{currentUser.profilePicture}}">
-      {{!-- <small class="cap">{{currentUser.userType}}</small> --}}
+      {{#if currentUser}}
+      <div class="header-image" style="background-image: url({{currentUser.profilePicture}}"></div>
+      {{/if}}
     </nav>
   </header>
   <main id="main">
-  {{{body}}}
+    {{{body}}}
   </main>
   <footer>
     <a href="/requests/notifications"><i class="fas fa-bell"></i></a>
     <a href="/requests/list"><i class="far fa-calendar-check"></i></a>
     <a href="/home"><i class="fas fa-search"></i></a>
     <a href="/profile">
-    {{#if currentUser}}
-    <i class="fas fa-user"></i>
-    {{else}}
-    <i class="fas fa-sign-in-alt"></i>
-    {{/if}}
+      {{#if currentUser}}
+      <i class="fas fa-user"></i>
+      {{else}}
+      <i class="fas fa-sign-in-alt"></i>
+      {{/if}}
     </a>
   </footer>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
