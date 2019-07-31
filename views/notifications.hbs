@@ -1,6 +1,25 @@
 <section class="main-section" id="notifications">
   <h1>Notifications</h1>
-  {{#each requests}}
-  {{> notificationCard}}
-  {{/each}}
+  <div class="search-top-buttons">
+    <a class="searchbox-button band">Inbox</a>
+    <a class="searchbox-button stage">Sent</a>
+  </div>
+  <div class="request-container">
+    <div class="request-accepted">
+      {{#each requests}}
+        {{#unless (fromTo from.userType)}}
+          {{> notificationCard}}
+        {{/unless}}
+      {{/each}}
+    </div>
+    <div class="request-rejected">
+      {{#each requests}}
+        {{#if (fromTo from.userType)}}
+          {{> notificationCard}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
 </section>
+
+<script src='../javascripts/requestButtons.js'></script>

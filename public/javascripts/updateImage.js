@@ -39,7 +39,6 @@ const main = () => {
       const list = genreList.value.split('-');
       list.splice(list.indexOf(this.innerText), 1);
       genreList.value = list.join('-');
-      console.log(genreList.value);
       genreContainer.removeChild(this);
     }
   };

@@ -33,9 +33,9 @@ router.post('/', async (req, res, next) => {
 router.get('/list', async (req, res, next) => {
   try {
     const sendId = req.session.currentUser._id;
-    const recId = req.session.currentUser._id;
-    const requests = await Request.find({ $or: [{ sendId }, { recId }] }).sort({ date: -1 }).populate('from to');
-    // console.log('<<<requests>>>: ', requests);
+    const requests = await Request.find({ $and: [
+      { $or: [{ status: 'accepted' }, { status: 'rejected' }, { status: 'canceled' }] },
+      { $or: [{ sendId }, { recId: sendId }] }] }).sort({ date: -1 }).populate('from to');
     res.render('requests', { requests });
   } catch (error) {
     next(error);

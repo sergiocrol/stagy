@@ -1,14 +1,24 @@
 <section class="main-section" id="requests-list">
-  <h1>Requests</h1>
-  {{#each requests}}
-  <article class="request-card">
-    <ul>
-      <li>From: {{fromModel}}</li>
-      <li>From: {{toModel}}</li>
-      <li>Message: {{message}}</li>
-      <li>Date: {{dateFormat date}}</li>
-      <li class="cap">Status: {{status}}</li>
-    </ul>
-  </article>
-  {{/each}}
+  <div class="search-top-buttons">
+    <a class="searchbox-button band">Accepted</a>
+    <a class="searchbox-button stage">Rejected</a>
+  </div>
+  <div class="request-container">
+    <div class="request-accepted">
+      {{#each requests}}
+        {{#if (statusFilter this.status)}}
+          {{> requestCard}}
+        {{/if}}
+      {{/each}}
+    </div>
+    <div class="request-rejected">
+      {{#each requests}}
+        {{#unless (statusFilter this.status)}}
+          {{> requestCard}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
 </section>
+
+<script src='../javascripts/requestButtons.js'></script>

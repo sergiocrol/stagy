@@ -56,6 +56,41 @@ hbs.registerHelper('dateFormat', date => {
   const newDate = date.toString();
   return moment(newDate).format('MMM Do YY');
 });
+hbs.registerHelper('fromTo', userType => {
+  if (userType === app.locals.currentUser.userType) {
+    return true;
+  } else {
+    return false;
+  }
+});
+hbs.registerHelper('bandLike', userType => {
+  if (userType !== app.locals.currentUser.userType && app.locals.currentUser.userType === 'stage') {
+    return true;
+  } else {
+    return false;
+  }
+});
+hbs.registerHelper('statusFilter', status => {
+  if (status === 'accepted') {
+    return true;
+  } else {
+    return false;
+  }
+});
+hbs.registerHelper('containsMessage', message => {
+  if (message.trim() !== '') {
+    return true;
+  } else {
+    return false;
+  }
+});
+hbs.registerHelper('bandLikeState', userType => {
+  if (userType === 'band') {
+    return true;
+  } else {
+    return false;
+  }
+});
 
 app.use(logger('dev'));
 app.use(express.json());

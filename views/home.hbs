@@ -17,7 +17,7 @@
     <div  class="suggestions-container">
       <h1>Recomended</h1>
       {{#each searchResult}}
-      <p><a href="/users/{{this._id}}/?type={{this.userType}}">{{this.name}}</a></p>
+       {{> userCard}}
       {{/each}}
     </div>
   {{else}}
