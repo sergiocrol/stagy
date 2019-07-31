@@ -51,6 +51,20 @@ footer {
   #main-header i:hover,
   footer i:hover {
     color: #f6911e; }
+  #main-header small,
+  footer small {
+    color: #656565;
+    width: 30px;
+    margin-left: -15px;
+    margin-top: 7px; }
+  #main-header .header-image,
+  footer .header-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #8f4c00;
+    background-size: cover;
+    background-position: center; }
 
 footer {
   bottom: 0px;

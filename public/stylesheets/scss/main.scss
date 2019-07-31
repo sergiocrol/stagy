@@ -65,6 +65,20 @@ footer {
   & i:hover {
     color: $orange;
   }
+  & small {
+    color: #656565;
+    width: 30px;
+    margin-left: -15px;
+    margin-top: 7px;
+  }
+  & .header-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid $dark-orange;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 footer {
@@ -619,7 +633,6 @@ button,
       background-color: $dark-orange;
     }
   }
-
 }
 
 .request-card {
