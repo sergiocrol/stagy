@@ -10,8 +10,9 @@ const main = () => {
         const reader = new FileReader(); // eslint-disable-line
 
         reader.onload = function (e) {
-          const img = document.querySelector('.image-wrapper img');
-          img.src = e.target.result;
+          const imgWrapper = document.querySelector('.image-wrapper');
+
+          imgWrapper.style.backgroundImage = 'url("' + e.target.result + '")';
         };
 
         reader.readAsDataURL(inputFile.files[0]);
