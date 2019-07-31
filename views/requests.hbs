@@ -1,7 +1,7 @@
 <section class="main-section" id="requests-list">
-  <div class="search-top-buttons">
-    <a class="searchbox-button band">Accepted</a>
-    <a class="searchbox-button stage">Rejected</a>
+  <div class="requests-top-buttons">
+    <a class="requests-button band selected">Accepted</a>
+    <a class="requests-button stage">Rejected</a>
   </div>
   <div class="request-container">
     <div class="request-accepted">
@@ -11,7 +11,7 @@
         {{/if}}
       {{/each}}
     </div>
-    <div class="request-rejected">
+    <div class="request-rejected hidden">
       {{#each requests}}
         {{#unless (statusFilter this.status)}}
           {{> requestCard}}

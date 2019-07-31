@@ -70,4 +70,14 @@ router.post('/response/:id', async (req, res, next) => {
   res.redirect('/requests/notifications');
 });
 
+router.post('/delete/:id', async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    await Request.deleteOne({ _id: id });
+    res.redirect('/requests/notifications');
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

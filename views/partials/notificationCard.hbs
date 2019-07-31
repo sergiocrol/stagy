@@ -9,6 +9,11 @@
   {{#if (fromTo from.userType)}}
     <p>sent</p>
     {{#if (containsMessage message)}}<button><i class="far fa-envelope"></i></button>{{/if}}
+    {{#unless (bandLikeState from.userType)}}
+      <form action="/requests/delete/{{_id}}" method="POST">
+        <button type="submit" name="delete">cancelar</button>
+      </form>
+    {{/unless}}
   {{else}}
     {{#if (bandLike from.userType)}}
       <p>LIKE!</p>

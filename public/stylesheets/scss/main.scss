@@ -2,6 +2,8 @@ $orange: #f6911e;
 $dark-orange: #8f4c00;
 $border-color: #a6a6a6;
 $red: #b40000;
+$ochre: #a5432a;
+$gold: #cf970e;
 
 * {
   box-sizing: border-box;
@@ -40,7 +42,7 @@ small {
   padding: 15px 25px;
   height: 100%;
   max-height: calc(100vh - 100px);
-  overflow: scroll;
+  overflow: auto;
 }
 
 #main-header,
@@ -349,37 +351,35 @@ button,
 
 .searchbox-container {
   position: relative;
+  border-radius: 0 0 10px 10px;
 }
 
 .search-band,
 .search-stage {
   display: flex;
-  background-color: red;
+  background-color: $orange;
   width: 100%;
   padding: 20px 25px;
+  border-radius: 0 0 10px 10px;
+
   & form {
     width: 100%;
+    & * {
+      margin-top: 6px;
+    }
+    & button {
+      background-color: white;
+      color: $dark-orange;
+      padding: 10px 18px;
+      font-weight: bold;
+    }
   }
 }
 
 .search-stage {
   position: absolute;
-  background-color: blue;
+  background-color: $dark-orange;
   top: 0;
-}
-
-.search-top-buttons {
-  display: flex;
-  justify-content: space-around;
-  font-size: 1em;
-  & a {
-    width: 100%;
-    background-color: red;
-    padding: 10px;
-  }
-  & a:last-child {
-    background-color: blue;
-  }
 }
 
 .suggestions-container {
@@ -390,20 +390,33 @@ button,
 .suggestions-band,
 .suggestions-stage {
   display: flex;
-  background-color: red;
   width: 100%;
-  padding: 20px 25px;
+  padding: 0 15px;
   flex-direction: column;
+  background-color: white;
+  & h1 {
+    margin: 5px 0;
+  }
+  & article {
+    border: 5px solid #f6911e;
+    padding: 10px;
+    border-radius: 3px;
+    & img {
+      margin-right: 10px;
+    }
+  }
 }
 
 .suggestions-stage {
   position: absolute;
-  background-color: blue;
   top: 0;
+  & article {
+    border-color: $dark-orange;
+  }
 }
 
 .hidden {
-  display: none;
+  display: none !important; 
 }
 
 .invisible-input {
@@ -499,13 +512,13 @@ button,
 
 .request-container {
   position: relative;
+  height: calc(100% - 50px);
 }
 
 .request-accepted,
 .request-rejected {
   display: flex;
   flex-direction: column;
-  background-color: goldenrod;
   width: 100%;
   height: 100%;
   padding: 20px 25px;
@@ -514,24 +527,32 @@ button,
   }
 }
 
-.request-rejected {
-  position: absolute;
-  background-color: brown;
-  top: 0;
-  display: none;
-}
+// .request-rejected {
+//   position: absolute;
+//   top: 0;
+//   display: none;
+//   background-color: white;
+// }
 
-.search-top-buttons {
+.requests-top-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   font-size: 1em;
+
   & a {
-    width: 100%;
-    background-color: goldenrod;
-    padding: 10px;
+    width: auto;
+    background-color: white;
+    border: 3px solid $orange;
+    border-radius: 20px 0 0 20px;
+    color: $orange;
+    padding: 8px 20px;
   }
   & a:last-child {
-    background-color: brown;
+    border-radius: 0 20px 20px 0;
+  }
+  & .selected {
+    background-color: $orange;
+    color: white;
   }
 }
 
@@ -577,4 +598,24 @@ button,
   min-width: 10px;
   min-height: 10px;
   border: 1px dashed purple;
+}
+
+
+.search-top-buttons {
+  display: flex;
+  border-radius: 5px;
+  & .searchbox-button {
+    font-weight: bold;
+    color: white;
+    background-color: $orange;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px 0 0 0;
+    padding: 10px;
+    &:last-child {
+      border-radius: 0 10px 0 0;
+      background-color: $dark-orange;
+    }
+  }
+
 }
