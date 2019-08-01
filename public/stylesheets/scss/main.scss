@@ -1,7 +1,8 @@
 $orange: #f6911e;
 $dark-orange: #c9710d;
 $heading-orange: #8f4c00;
-$border-color: #a6a6a6;
+$placeholder: #d1d1d1;
+$border-color: #b3b3b3;
 $red: #b40000;
 $ochre: #a5432a;
 $gold: #cf970e;
@@ -90,6 +91,7 @@ footer {
   & .header-image {
     width: 32px;
     height: 32px;
+    margin-left: -32px;
     border-radius: 50%;
     border: 3px solid $dark-orange;
     background-size: cover;
@@ -128,13 +130,18 @@ form {
   display: flex;
   flex-direction: column;
   & input,
-  & select {
+  & select,
+  & textarea {
     margin: 10px 0;
     border: 1px solid $border-color;
     border-radius: 4px;
     padding: 5px;
     font-size: 0.9rem;
     height: 30px;
+    font-family: monospace;
+    &::placeholder {
+      color: $placeholder;
+    }
   }
   & select {
     background-color: #dfdfdf;
@@ -157,6 +164,12 @@ form {
   }
   & button {
     margin-top: 20px;
+  }
+  & form p {
+    text-align: left;
+  }
+  & textarea {
+    height: auto;
   }
 }
 
@@ -203,6 +216,7 @@ button,
     line-height: 1.5;
     margin: 0;
     transform: rotate(-5deg);
+    color: white;
   }
   & p {
     text-align: center;
@@ -277,7 +291,7 @@ button,
   flex-wrap: wrap;
   margin-top: -8px;
   & p {
-    margin: 0;
+    margin-top: 8px;
     padding-right: 10px;
   }
   & .genres {
@@ -299,7 +313,7 @@ button,
       background-color: $orange;
       margin: auto 0 0 15px;
       padding: 0;
-      width: 90px;
+      width: 115px;
       display: flex;
       color: white;
       &:after {
@@ -499,7 +513,7 @@ button,
     margin: 0;
   }
   & article {
-    border: 5px solid #f6911e;
+    border: 5px solid $dark-orange;
     padding: 10px;
     border-radius: 3px;
     & img {
@@ -513,7 +527,7 @@ button,
   height: 100%;
   background-color: white;
   & article {
-    border-color: $dark-orange;
+    border-color: $orange;
   }
 }
 
@@ -529,12 +543,13 @@ button,
 /*--- Card ---*/
 
 .card-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 95px auto;
+  grid-gap: 10px;
   margin-top: 20px;
   & .image-wrapper {
     width: 95px;
     height: 120px;
-    margin-right: 10px;
   }
   h2,
   p {
@@ -678,17 +693,19 @@ button,
   display: flex;
   justify-content: center;
   font-size: 1em;
-
   & a {
     width: auto;
     background-color: white;
     border: 3px solid $orange;
     border-radius: 20px 0 0 20px;
     color: $orange;
-    padding: 8px 20px;
+    padding: 5px 22px 5px 25px;
+    margin: 0 -2px 0 0;
   }
   & a:last-child {
     border-radius: 0 20px 20px 0;
+    margin: 0 0 0 -2px;
+    padding: 5px 25px 5px 22px;
   }
   & .selected {
     background-color: $orange;

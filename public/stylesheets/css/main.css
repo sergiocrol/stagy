@@ -74,6 +74,7 @@ footer {
   footer .header-image {
     width: 32px;
     height: 32px;
+    margin-left: -32px;
     border-radius: 50%;
     border: 3px solid #c9710d;
     background-size: cover;
@@ -105,13 +106,19 @@ form {
   display: flex;
   flex-direction: column; }
   form input,
-  form select {
+  form select,
+  form textarea {
     margin: 10px 0;
-    border: 1px solid #a6a6a6;
+    border: 1px solid #b3b3b3;
     border-radius: 4px;
     padding: 5px;
     font-size: 0.9rem;
-    height: 30px; }
+    height: 30px;
+    font-family: monospace; }
+    form input::placeholder,
+    form select::placeholder,
+    form textarea::placeholder {
+      color: #d1d1d1; }
   form select {
     background-color: #dfdfdf; }
 
@@ -132,6 +139,12 @@ form {
   #sign-up-in button,
   #edit-profile button {
     margin-top: 20px; }
+  #sign-up-in form p,
+  #edit-profile form p {
+    text-align: left; }
+  #sign-up-in textarea,
+  #edit-profile textarea {
+    height: auto; }
 
 button,
 #landing-page .connect,
@@ -171,7 +184,8 @@ button,
     font-size: 3.2em;
     line-height: 1.5;
     margin: 0;
-    transform: rotate(-5deg); }
+    transform: rotate(-5deg);
+    color: white; }
   #landing-page p {
     text-align: center;
     margin-top: 30px; }
@@ -229,7 +243,7 @@ button,
   flex-wrap: wrap;
   margin-top: -8px; }
   .user-genres p {
-    margin: 0;
+    margin-top: 8px;
     padding-right: 10px; }
   .user-genres .genres {
     background-color: #a5432a;
@@ -247,7 +261,7 @@ button,
     background-color: #f6911e;
     margin: auto 0 0 15px;
     padding: 0;
-    width: 90px;
+    width: 115px;
     display: flex;
     color: white; }
     #edit-profile .image-section .input-file:after {
@@ -339,7 +353,7 @@ button,
     .request-section .request-popup #date,
     .request-section .request-popup #message {
       margin: 10px 0;
-      border: 1px solid #a6a6a6;
+      border: 1px solid #b3b3b3;
       border-radius: 4px;
       padding: 5px;
       font-size: 0.9rem;
@@ -424,7 +438,7 @@ button,
     margin: 0; }
   .suggestions-band article,
   .suggestions-stage article {
-    border: 5px solid #f6911e;
+    border: 5px solid #c9710d;
     padding: 10px;
     border-radius: 3px; }
     .suggestions-band article img,
@@ -436,7 +450,7 @@ button,
   height: 100%;
   background-color: white; }
   .suggestions-stage article {
-    border-color: #c9710d; }
+    border-color: #f6911e; }
 
 .hidden {
   display: none !important; }
@@ -447,12 +461,13 @@ button,
 
 /*--- Card ---*/
 .card-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 95px auto;
+  grid-gap: 10px;
   margin-top: 20px; }
   .card-container .image-wrapper {
     width: 95px;
-    height: 120px;
-    margin-right: 10px; }
+    height: 120px; }
   .card-container h2,
   .card-container p {
     margin: 0 0 10px; }
@@ -576,9 +591,12 @@ button,
     border: 3px solid #f6911e;
     border-radius: 20px 0 0 20px;
     color: #f6911e;
-    padding: 8px 20px; }
+    padding: 5px 22px 5px 25px;
+    margin: 0 -2px 0 0; }
   .requests-top-buttons a:last-child {
-    border-radius: 0 20px 20px 0; }
+    border-radius: 0 20px 20px 0;
+    margin: 0 0 0 -2px;
+    padding: 5px 25px 5px 22px; }
   .requests-top-buttons .selected {
     background-color: #f6911e;
     color: white; }

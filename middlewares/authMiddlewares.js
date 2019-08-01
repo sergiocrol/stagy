@@ -92,7 +92,7 @@ const isValidPassword = (req, res, next) => {
   if (!re.test(password)) {
     req.flash(
       'wrongPasswordFormat',
-      'Password must contain 6 characters. At least 1 uppercase, 1 number and 1 special character'
+      'Password must contain 6 characters. At least 1 uppercase, 1 lowercase, 1 number and 1 special character'
     );
     return res.redirect(req.originalUrl);
   }

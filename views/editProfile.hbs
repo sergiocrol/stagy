@@ -10,15 +10,16 @@
 
     <label class="title" for="tagLine">Tagline:</label>
     <input type="text" name="tagLine" id="tagLine" value="{{currentUser.tagLine}}"
-      placeholder="A catchy phrase about you">
+      placeholder="Max 55 characters" maxlength="55">
 
     <label class="title" for="location">Location:</label>
     <input class="cap" type="text" name="location" id="location" value="{{currentUser.location}}"
-      placeholder="Barcelona">
+      placeholder="Ex: Barcelona">
 
     <label class="title" for="description">Description:</label>
-    <input type="text" name="description" id="description" value="{{currentUser.description}}"
-      placeholder="Tell the world about you">
+    <textarea id="description" name="description" rows="3"
+      placeholder="Tell the world about you">{{currentUser.description}}</textarea>
+
 
     {{#if hasAddress}}
     <label class="title" for="address">Address:</label>
