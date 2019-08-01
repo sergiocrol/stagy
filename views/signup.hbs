@@ -5,7 +5,7 @@
     <input type="text" name="name" id="name" placeholder="your name" value="{{nameFilled}}">
     {{#if name.length}}<small>{{name}}</small>{{/if}}
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" placeholder="example@mail.com" value="{{emailFilled}}">
+    <input type="email" name="email" id="email" placeholder="example@mail.com" value="{{emailFilled}}">
     {{#if emailExist}} <small>{{emailExist}}</small> {{/if}}
     {{#if email}} <small>{{email}}</small> {{else}} <small>{{validEmail}}</small> {{/if}}
     <label for="password">Password</label>

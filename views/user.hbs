@@ -18,15 +18,15 @@
     </section>
   </header>
   <hr>
-  <p>Description: {{user.description}}</p>
-  <p>Location: {{user.location}}</p>
+  <p><span class="title">Description:</span> {{user.description}}</p>
+  <p><span class="title">Location:</span> {{user.location}}</p>
   {{#if hasAddress}}
-  <p>Address: {{user.address}}</p>
+  <p><span class="title">Address:</span> {{user.address}}</p>
   {{/if}}
   <section class="user-genres">
-    <p>Genres:</p>
+    <p><span class="title">Genres:</span></p>
     {{#each user.genre}}
-    <span>{{this}}</span>
+    <span class="genres">{{this}}</span>
     {{/each}}
   </section>
   {{#if user.otherLocations}}

@@ -35,7 +35,7 @@ const bands = [
     rating: 4.9,
     reviewers: 8,
     description:
-      'María Esteban, born in Malaga. Her passion for music leads him to start her artistic career from a young age with musical projects. She has participated in various festivals such as: The Baja Bop Red Hot Rockin Festival (Los Angeles, USA), Nájera Jazz Festival (Antequera, Málaga), Rock this town (Solothurn, Switzerland), 24th Rocking Race Jamboree (Torremolinos, Málaga), 26th Malaga International Jazz Festival, Sintonizza Festival 2016 (Barcelona), 8th Reencontes du qé Arts Festival (Aix en Provece, France), 2016 Water Enclave Festival (Soria), 19th MAF Malaga Film Festival, 39th Jazz Festival Getxo, 1st prize at the 2014 Portón del Jazz Festival, etc...\r\nShe currently combines her work as a singer in Red Rombo and Jazzing. She also collaborates as a showgirl for Kim Lenz, a renowned American rockabilly singer.',
+      'María Esteban, born in Malaga. Her passion for music leads him to start her artistic career from a young age with musical projects. She has participated in various festivals such as: The Baja Bop Red Hot Rockin Festival (Los Angeles, USA), Nájera Jazz Festival (Antequera, Málaga), Rock this town (Solothurn, Switzerland), 24th Rocking Race Jamboree (Torremolinos, Málaga), 26th Malaga International Jazz Festival, Sintonizza Festival 2016 (Barcelona), 8th Reencontes du qé Arts Festival (Aix en Provece, France), 2016 Water Enclave Festival (Soria), 19th MAF Malaga Film Festival, 39th Jazz Festival Getxo, 1st prize at the 2014 Portón del Jazz Festival, etc...',
     tagLine: 'Great passion for singing',
     profilePicture:
       'https://dz8pdz0wfluv5.cloudfront.net/production/bands/avatars/000/012/511/original/_DSC0938_RE_web.jpg',
@@ -80,7 +80,7 @@ const bands = [
     rating: 4.3,
     reviewers: 6,
     description:
-      'Sobra La Marcha is a band born on the fly, formed in the Penitents neighborhood, Barcelona. It is a group of Catalan Rumba with African touches in their percussion.\r\nIt all started with Goyo guitar in hand and bass drum, inspired by the most flamenco songs of Catalonia. Then Ousseynou arrived introducing his African touch, with his percussion that leaves no one indifferent. Blanca, with its rumbero flavor gives the female voice to the group. The last to get in the car is Checho, the Argentine bassist who gives his jazz and funk touch to the group.',
+      'Sobra La Marcha is a band born on the fly, formed in the Penitents neighborhood, Barcelona. It is a group of Catalan Rumba with African touches in their percussion. It all started with Goyo guitar in hand and bass drum, inspired by the most flamenco songs of Catalonia. Then Ousseynou arrived introducing his African touch, with his percussion that leaves no one indifferent. Blanca, with its rumbero flavor gives the female voice to the group. The last to get in the car is Checho, the Argentine bassist who gives his jazz and funk touch to the group.',
     tagLine: 'If you want to dance, follow us on this Rumbero trip',
     profilePicture:
       'https://dz8pdz0wfluv5.cloudfront.net/production/bands/avatars/000/008/507/original/26756997_2202625589751488_5193754249166943099_o.jpg',

@@ -299,7 +299,7 @@ button,
     padding: 5px 12px;
     border-radius: 20px;
     color: white;
-    margin: 5px 10px 2px 0;
+    margin: 3px 10px 4px 0;
   }
 }
 
@@ -309,12 +309,15 @@ button,
     margin-bottom: 10px;
     & .input-file {
       border: none;
-      margin: auto 0 0 8px;
+      margin: auto 0 0 10px;
       color: white;
+      background-color: $orange;
+      width: 116px;
+      font-size: 0.1px;
       &:after {
         content: 'Choose file';
         font-size: 14px;
-        text-align: center;
+        margin-left: -10px;
       }
     }
   }
@@ -499,7 +502,8 @@ button,
 }
 
 .suggestions-band,
-.suggestions-stage {
+.suggestions-stage,
+#search-results {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -596,36 +600,35 @@ button,
     }
     & .card-buttons {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: absolute;
-      right: 0;
       & .responses {
         display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-        & form {
-          flex-direction: row;
-        }
-        & button {
-          font-size: 2.25em;
-          background: none;
-          border: none;
-          color: green;
-          cursor: pointer;
-          margin-left: 15px;
-          cursor: pointer;
-        }
-        & .reject {
-          color: $red;
-        }
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;  
       }
       & button {
         display: flex;
         align-self: flex-end;
-        margin-top: auto;
-        padding: 5px;
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
         cursor: pointer;
+        background-color: white;
+        border: white;
+      }
+      & .accept {
+        color: green;
+        font-size: 2em;
+      }
+      & .reject {
+        font-size: 2em;
+        color: $red;
+      }
+      & .envelope-button {
+        padding: 5px;
+        color: white;
+        background-color: $orange;
+        
       }
     }
   }
@@ -782,7 +785,6 @@ button,
   }
   & div {
     & button {
-      position: absolute;
       bottom: 0;
       right: 0;
       padding: 5px 6px;
