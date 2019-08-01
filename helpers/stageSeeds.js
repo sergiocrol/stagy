@@ -12,56 +12,91 @@ mongoose.connect('mongodb://localhost/stagy', {
 
 const stages = [
   {
-    name: 'RockSound',
-    email: 'rocksound@test.com',
-    password: '$2b$10$52sNsu0cA',
+    name: 'Heliogabal',
+    email: 'heliogabal@mail.com',
+    password: '$2b$10$TikfOi76JLJUzKjvH7pHVeiNmqHKQ0cbMuHc6NneGrbteI2y7gtsW',
     location: 'barcelona',
-    genre: ['Rock'],
-    address: 'Carrer dels Almogavers, 116',
+    genre: [
+      'Blues',
+      'Classical',
+      'Experimental',
+      'Indie',
+      'Instrumental',
+      'Jazz',
+      'Orchestra',
+      'Pop',
+      'Reggae',
+      'Rock',
+      'Soul',
+      'Swing'
+    ],
+    address: 'Ramón y Cajal, 80',
     rating: 4.5,
-    reviewers: 658,
-    description: 'Good venue. Went to see the fantastic Electric Monolith and the Shrine there. Terrific show. Friendly atmosphere, good sound and easy enough to get to the bar. Air-conditioning want working so that made things somewhat uncomfortable. The bass player for the Shrine seemed to have heatstroke after their set. Very good venue, that aside.',
-    tagLine: 'Rock and roll place, get ready to sweat at the sound of the music',
-    userType: 'stage'
+    reviewers: 2,
+    description:
+      "The Heliogabal Cultural Association was founded in 1995 with the objective of serving as a platform for the development and promotion of artistic and cultural activities in the Gracia neighborhood of Barcelona. Since 2001, with a renewed management team, the association focuses its activities on the exhibition and promotion of musical and poetic projects, as well as other forms of artistic expression: painting and photography exhibitions, book presentations, magazines and fanzines, audiovisual projections, etc. As a space for dissemination, Heliogabal promotes the meeting between the public, neighbors, artists, groups and associations and collaborates with other platforms of the cultural and artistic fabric of Barcelona, ​​such as independent labels and publishing houses. In the fifteen years of activity, the headquarters of the Heliogabal Cultural Association has become a point of reference for the revitalization of Gracia's artistic life, both for the neighbors and for the artists who take part in the activities that take place.",
+    tagLine: 'One of the musical poles and the night of Gracia',
+    userType: 'stage',
+    profilePicture:
+      'https://media.timeout.com/images/100591221/750/422/image.jpg'
   },
   {
-    name: 'El Bombon',
-    email: 'bombon@test.com',
-    password: '$2b$10$52sNsu0cA',
+    name: 'London Bar',
+    email: 'london@mail.com',
+    password: '$2b$10$TikfOi76JLJUzKjvH7pHVeiNmqHKQ0cbMuHc6NneGrbteI2y7gtsW',
     location: 'barcelona',
-    genre: ['Salsa'],
-    address: 'Carrer de la Mercè, 13',
+    genre: ['Blues', 'Experimental', 'Instrumental', 'Jazz', 'Pop', 'Swing'],
+    address: 'Nou de la Rambla, 34',
+    rating: 4.9,
+    reviewers: 8,
+    description:
+      'Countless generations doing elbows since 1910, the platonic idea of ​​a bar that many of us have is that of London. The story is cynical-proof: before the war, London was a meeting point and rehearsal for circus artists. Two acrobats had a contract to go to northern Europe but they lacked a third. And Eli\'s grandfather (former owner) recommended that they go find Raluy\'s father, London parishioner, worker and amateur artist. By a stir he left the factory of Sant Adrià and packed. "I can\'t leave a London Bar: the circus returns where we come from and that is part of us," he says.\r\nIt is managed by Magda Viegas (solvent, former bartender of Boca Chica), who has created a signature cocktail bar with drinks inspired by the circus. Viegas promises that in half a year, the backroom cathedral where Eli played live music every night - and that in this city with a dry crust heart was his sentence - will again offer circus and music shows. The resumption is impeccable: they have done a face lift in the bar but have not changed anything. "The chairs are the same restored, the photos and pictures are exactly in the same place," Raluy explains excitedly.',
+    tagLine: 'Without London there would be no Raluy',
+    userType: 'stage',
+    profilePicture:
+      'https://media.timeout.com/images/100575817/750/422/image.jpg'
+  },
+  {
+    name: 'Tarantos',
+    email: 'tarantos@mail.com',
+    password: '$2b$10$TikfOi76JLJUzKjvH7pHVeiNmqHKQ0cbMuHc6NneGrbteI2y7gtsW',
+    location: 'barcelona',
+    genre: ['Folk', 'Latin', 'Jazz'],
+    address: 'Pl. Reial, 17',
     rating: 3.9,
-    reviewers: 265,
-    description: 'With a skilled bar staff and a great app here, I\'d highly recommend El Bombón.',
-    tagLine: 'Beautiful atmosphere, the place to be if you love salsa',
-    userType: 'stage'
+    reviewers: 5,
+    description: 'A place that has presented the great names of flamenco and rumba. Next to a mythical room like Jamboree, it is nothing unusual to see how jazz and flamenco lovers converge at the entrance.',
+    tagLine: 'A historical \'tablao\'',
+    userType: 'stage',
+    profilePicture: 'https://media.timeout.com/images/100575811/750/422/image.jpg'
   },
   {
-    name: 'Sala Marquee',
-    email: 'salamarquee@test.com',
-    password: '$2b$10$52sNsu0cA',
-    location: 'bilbao',
-    genre: ['Salsa'],
-    address: 'Calle del General Concha, 9',
-    rating: 3.6,
-    reviewers: 293,
-    description: 'It is a modern place beautiful people good music an exquisite treatment of the waiters and all the staff one of the best rooms in Bilbao whenever I can I\'m delighted with the local',
-    tagLine: 'The best night club in Bilbao, the best atmosphere and the best people',
-    userType: 'stage'
+    name: 'Harlem Jazz Club',
+    email: 'harlem@mail.com',
+    password: '$2b$10$TikfOi76JLJUzKjvH7pHVeiNmqHKQ0cbMuHc6NneGrbteI2y7gtsW',
+    location: 'barcelona',
+    genre: ['Jazz', 'Swing'],
+    address: 'Comtessa de Sobradiel, 8',
+    rating: 4.2,
+    reviewers: 6,
+    description: "If you need a dose of live music, the Harlem Jazz Club is always there. Few times a year you find the room in silence. You do not need a green cross illuminated at all times. Even him, the Guiris and the people of Barcelona approach. Some get lost before arriving. Al Harlem is going to see what happens but, above all, to see who plays. In the dark, sitting in the chairs, or standing, squeezed in the bar, we hear the concert of the small stage. Under the neon sign, all blues songs are written and lonely cats are welcome.\r\nThe place remains almost intact since it opened. It retains the window and a door reminiscent of the famous English cabins. As if they didn't want to clash, the pictures on the walls are dark. Jazz musicians have been painted in shades that hardly move away from black, as if they did not want to disturb.\r\nJazz, blues, funk, reggae can be heard every day, it depends on the group. Most of the country's musicians have passed through these walls. Some gave their first concerts and others have played Harlem again when they thought it was too loud. Albert Pla chose the Harlem to play again. He filled a few nights with people sitting practically at the bar. Even so, you don't have to wait for someone who knows this place to play: it is worth going tonight for someone to speak to you, as if you were from the New York neighborhood, in another language that you have never heard.",
+    tagLine: 'As a pharmacy on call, this Gotico place comes to mind',
+    userType: 'stage',
+    profilePicture: 'https://media.timeout.com/images/100575909/750/422/image.jpg'
   },
   {
-    name: 'Azzurro Rock Pub',
-    email: 'azzurro@test.com',
-    password: '$2b$10$52sNsu0cA',
-    location: 'bilbao',
-    genre: ['Rock'],
-    address: 'Aranzadi Kalea, 3',
-    rating: 4.6,
-    reviewers: 278,
-    description: 'A "small big" local, with more than 40 years in operation, located in one of the classic marching areas of downtown Bilbao, on Telesforo Aranzadi Street, number 3, between the Carlton Hotel (Moyúa Square) and the Urquijo Gallery.',
-    tagLine: 'The best place to be for good music and friendly atmosphere',
-    userType: 'stage'
+    name: 'Gran Bodega Salto',
+    email: 'salto@mail.com',
+    password: '$2b$10$TikfOi76JLJUzKjvH7pHVeiNmqHKQ0cbMuHc6NneGrbteI2y7gtsW',
+    location: 'barcelona',
+    genre: ['Rock', 'Alternative rock', 'Pop', 'Indie'],
+    address: 'Blesa, 36',
+    rating: 4.3,
+    reviewers: 11,
+    description: 'La Salto has been one of the pioneers in converting the Poble-sec into one of the liveliest neighborhoods in the city. In fact, their schedules are more of a night bar than a store, which does not prevent some neighbors from going down at night to fill their carafes of barrel wine. But its oenological offer is not the main attraction of Bodega Salto. Renovated by designer Steve Foster in 2002, it works as a small fair of extravagance where you can find all kinds of andromines, antiguallas, stuffed tigers or puppets that drink in porron.',
+    tagLine: 'Hard to find a place this picturesque in Barcelona',
+    userType: 'stage',
+    profilePicture: 'https://media.timeout.com/images/100617011/750/422/image.jpg'
   }
 ];
 

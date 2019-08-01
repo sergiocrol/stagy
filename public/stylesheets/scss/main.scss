@@ -308,13 +308,8 @@ button,
     display: flex;
     margin-bottom: 10px;
     & .input-file {
-      font-size: 0.1px;
       border: none;
-      background-color: $orange;
-      margin: auto 0 0 15px;
-      padding: 0;
-      width: 115px;
-      display: flex;
+      margin: auto 0 0 8px;
       color: white;
       &:after {
         content: 'Choose file';

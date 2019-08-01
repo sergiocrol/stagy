@@ -256,13 +256,8 @@ button,
   display: flex;
   margin-bottom: 10px; }
   #edit-profile .image-section .input-file {
-    font-size: 0.1px;
     border: none;
-    background-color: #f6911e;
-    margin: auto 0 0 15px;
-    padding: 0;
-    width: 115px;
-    display: flex;
+    margin: auto 0 0 8px;
     color: white; }
     #edit-profile .image-section .input-file:after {
       content: 'Choose file';
