@@ -527,7 +527,7 @@ button,
       display: flex;
       align-self: flex-end;
       margin: 0;
-      margin-left: 5px;
+      margin-left: 8px;
       padding: 0;
       cursor: pointer;
       background-color: white;
@@ -544,7 +544,8 @@ button,
     #requests-list .request-card .card-buttons .envelope-button {
       padding: 5px;
       color: white;
-      background-color: #f6911e; }
+      background-color: #f6911e;
+      margin-bottom: 2px; }
 
 #notifications li,
 #requests-list li {
@@ -557,7 +558,7 @@ button,
   transition: .2s all linear; }
   .message-container.active {
     transition: .2s all linear;
-    height: 30px; }
+    height: auto; }
   .message-container p {
     padding: 10px 0;
     color: #645f5f; }

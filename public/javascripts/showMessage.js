@@ -2,10 +2,9 @@
 
 const msg = () => {
   const envelopeButton = document.querySelectorAll('.envelope-button');
-
   envelopeButton.forEach(button => {
     button.addEventListener('click', () => {
-      button.parentElement.nextElementSibling.classList.toggle('active');
+      button.parentElement.parentElement.parentElement.nextElementSibling.classList.toggle('active');
     });
   });
 };
