@@ -7,33 +7,39 @@
       <p>{{#if (fromTo from.userType)}}{{to.location}}{{else}}{{from.location}}{{/if}}</p>
       {{#unless (bandLikeState from.userType)}}<p class="cap">{{status}}</p>{{/unless}}
     </section>
-  </div>
+ 
   {{#if (fromTo from.userType)}}
     {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
     {{#unless (bandLikeState from.userType)}}
-      <form action="/requests/delete/{{_id}}" method="POST">
-        <button type="submit" name="delete">cancelar</button>
+      <form class="cancel-form" action="/requests/delete/{{_id}}" method="POST">
+        <button class="cancel-button" type="submit" name="delete"><i class="fas fa-trash"></i></button>
       </form>
+    </div>
+    <div class="message-container"><p>{{message}}</p></div>
     {{/unless}}
+    </div>
+    <div class="message-container"><p>{{message}}</p></div>
   {{else}}
     {{#if (bandLike from.userType)}}
-    <div>
       {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
-    </div>
+     </div>
+     <div class="message-container"><p>{{message}}</p></div>
     {{else}}
       <section class="card-buttons">
         <div class="responses">
           <form action="/requests/response/{{_id}}" method="POST">
-            <button class="accept" type="submit" name="accept" value="accepted">
+            <button id="accept" class="accept" type="submit" name="accept" value="accepted">
               <i class="fas fa-check"></i>
             </button>
-            <button class="reject" type="submit" name="reject" value="rejected">
+            <button id="reject" class="reject" type="submit" name="reject" value="rejected">
               <i class="fas fa-times"></i>
             </button>
           </form>
         </div>
-        {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
       </section>
+      {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
+      </div>
+      <div class="message-container"><p>{{message}}</p></div>
     {{/if}}
   {{/if}}
 </article>

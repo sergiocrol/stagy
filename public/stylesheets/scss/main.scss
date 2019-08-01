@@ -598,6 +598,8 @@ button,
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: absolute;
+      right: 0;
       & .responses {
         display: flex;
         justify-content: space-around;
@@ -651,8 +653,19 @@ button,
 
 .card-content {
   display: flex;
+  position: relative;
   & .card-info {
     width: 60%;
+  }
+  & .cancel-button {
+    background-color: rgb(196, 31, 31);
+    border-color: #b10000
+  }
+  & .cancel-form {
+    position: absolute;
+    right: 0;
+    width: auto;
+    margin-top: 30px;
   }
 }
 
@@ -676,13 +689,6 @@ button,
     width: 100%;
   }
 }
-
-// .request-rejected {
-//   position: absolute;
-//   top: 0;
-//   display: none;
-//   background-color: white;
-// }
 
 .requests-top-buttons {
   display: flex;
@@ -772,14 +778,20 @@ button,
   & button {
     align-self: end;
     padding: 5px 6px;
-    margin-top: 10px;
+  
   }
   & div {
     & button {
-      margin-top: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
       padding: 5px 6px;
     }
   }
+}
+
+#accept, #reject {
+  position: relative;
 }
 
 .card-info h1 a {

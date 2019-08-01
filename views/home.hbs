@@ -74,5 +74,7 @@
   </div>
 </section>
 
-<script src='../javascripts/searchBox.js'></script>
+{{#unless currentUser}}
+  <script src='../javascripts/searchBox.js'></script>
+{{/unless}}
 <script src='../../javascripts/cardsHelper.js'></script>
