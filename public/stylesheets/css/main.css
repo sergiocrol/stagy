@@ -500,7 +500,9 @@ button,
   #requests-list .request-card .card-buttons {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    position: absolute;
+    right: 0; }
     #notifications .request-card .card-buttons .responses,
     #requests-list .request-card .card-buttons .responses {
       display: flex;
@@ -546,9 +548,18 @@ button,
     color: #645f5f; }
 
 .card-content {
-  display: flex; }
+  display: flex;
+  position: relative; }
   .card-content .card-info {
     width: 60%; }
+  .card-content .cancel-button {
+    background-color: #c41f1f;
+    border-color: #b10000; }
+  .card-content .cancel-form {
+    position: absolute;
+    right: 0;
+    width: auto;
+    margin-top: 30px; }
 
 /*--- Notifications ---*/
 .request-container {
@@ -634,12 +645,16 @@ button,
 
 .request-card button {
   align-self: end;
-  padding: 5px 6px;
-  margin-top: 10px; }
+  padding: 5px 6px; }
 
 .request-card div button {
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   padding: 5px 6px; }
+
+#accept, #reject {
+  position: relative; }
 
 .card-info h1 a {
   color: #c9710d; }
