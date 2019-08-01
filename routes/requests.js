@@ -36,10 +36,21 @@ router.get('/list', signinRequired, async (req, res, next) => {
   if (!req.session.currentUser) { res.redirect('/auth/login/'); };
   try {
     const sendId = req.session.currentUser._id;
+<<<<<<< Updated upstream
     const requests = await Request.find({ $and: [
       { $or: [{ status: 'accepted' }, { status: 'rejected' }, { status: 'canceled' }] },
       { $or: [{ sendId }, { recId: sendId }] }] }).sort({ date: -1 }).populate('from to');
     res.render('requests', { requests });
+=======
+    const recId = req.session.currentUser._id;
+    const userBand = req.session.currentUser.userType === 'band' ? 'userBand' : '';
+    const requests = await Request.find({ $or: [{ sendId }, { recId }] })
+      .sort({ date: -1 })
+      .populate('from to');
+    console.log('\n>>> !!! <<<\n\n', req.session.currentUser);
+
+    res.render('requests', { requests, userBand });
+>>>>>>> Stashed changes
   } catch (error) {
     next(error);
   }
@@ -56,6 +67,16 @@ router.get('/notifications', signinRequired, async (req, res, next) => {
     }).populate('from to');
     const userBand = req.session.currentUser.userType === 'band' ? 'userBand' : '';
 
+<<<<<<< Updated upstream
+=======
+    // console.log('\n>>> !!! <<<\n\n');
+    // console.log(requests);
+
+    // console.log('sessionId:', sessionId);
+    // console.log('requests.sendId:', requests.sendId);
+    // console.log('fromModel:', requests.fromModel);
+
+>>>>>>> Stashed changes
     res.render('notifications', { requests, userBand });
   } catch (error) {
     next(error);
