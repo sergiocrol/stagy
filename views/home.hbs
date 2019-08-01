@@ -28,6 +28,7 @@
     <form class="search-stage hidden" action="/users/type/stage" method="GET">
       <label for="genre">Genres</label>
       <select name="genre" id="genre">
+         <option value="">- Select an option</option>
         {{#each genreList}}
         <option value="{{this}}">{{this}}</option>
         {{/each}}

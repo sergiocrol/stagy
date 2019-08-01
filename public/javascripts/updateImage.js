@@ -31,6 +31,7 @@ const main = () => {
       const genreElement = document.createElement('button');
       genreElement.type = 'button';
       genreElement.innerText = genreSelect.value;
+      genreElement.classList.add('genre');
       genreElement.addEventListener('click', deleteGenre);
       genreContainer.appendChild(genreElement);
       genreList.value = genreList.value + '-' + genreSelect.value;

@@ -12,9 +12,6 @@
 <body>
   <header id="main-header">
     <nav>
-      {{#if currentUser}}
-      <i class="fas fa-chevron-left"></i>
-      {{/if}}
       <a class="logo" href="/home"><img src="/images/stagy-logo.png" alt="Stagy Logo"></a>
       {{#if currentUser}}
       <a class="header-image" href="/profile" style="background-image: url({{currentUser.profilePicture}}"></a>
