@@ -1,45 +1,53 @@
 <article class="request-card">
   <div class="card-content">
-    <section class="card-image" style="background-image: url({{#if (fromTo from.userType)}}{{to.profilePicture}}{{else}}{{from.profilePicture}}{{/if}}">
+    <section class="card-image"
+      style="background-image: url({{#if (fromTo from.userType)}}{{to.profilePicture}}{{else}}{{from.profilePicture}}{{/if}}">
     </section>
     <section class="card-info">
-      <h1>{{#if (fromTo from.userType)}}<a href="/users/{{to._id}}/?type={{to.userType}}">{{to.name}}</a>{{else}}<a href="/users/{{from._id}}/?type={{from.userType}}">{{from.name}}</a>{{/if}} </h1>
-      <p>{{#if (fromTo from.userType)}}{{to.location}}{{else}}{{from.location}}{{/if}}</p>
-      {{#unless (bandLikeState from.userType)}}<p class="cap">{{status}}</p>{{/unless}}
-    </section>
- 
-  {{#if (fromTo from.userType)}}
-    {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
-    {{#unless (bandLikeState from.userType)}}
-      <form class="cancel-form" action="/requests/delete/{{_id}}" method="POST">
-        <button class="cancel-button" type="submit" name="delete"><i class="fas fa-trash"></i></button>
-      </form>
-    </div>
-    <div class="message-container"><p>{{message}}</p></div>
-    {{/unless}}
-    </div>
-    <div class="message-container"><p>{{message}}</p></div>
-  {{else}}
-    {{#if (bandLike from.userType)}}
-      {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
-     </div>
-     <div class="message-container"><p>{{message}}</p></div>
-    {{else}}
+      {{#if (fromTo from.userType)}}<p>You like <a class="title"
+          href="/users/{{to._id}}/?type={{to.userType}}">{{to.name}}</a></p>
+      {{else}}
+      <p><a class="title" href="/users/{{from._id}}/?type={{from.userType}}">{{from.name}}</a> wants to hire you!</p>
+      {{/if}}
       <section class="card-buttons">
-        <div class="responses">
-          <form action="/requests/response/{{_id}}" method="POST">
-            <button id="accept" class="accept" type="submit" name="accept" value="accepted">
-              <i class="fas fa-check"></i>
-            </button>
-            <button id="reject" class="reject" type="submit" name="reject" value="rejected">
-              <i class="fas fa-times"></i>
-            </button>
-          </form>
-        </div>
-      </section>
-      {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
-      </div>
-      <div class="message-container"><p>{{message}}</p></div>
-    {{/if}}
+        {{#if (fromTo from.userType)}}
+        {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
+        {{#unless (bandLikeState from.userType)}}
+        <form class="cancel-form" action="/requests/delete/{{_id}}" method="POST">
+          <button class="cancel-button" type="submit" name="delete"><i class="fas fa-trash"></i></button>
+        </form>
+  </div>
+  <div class="message-container">
+    <p>{{message}}</p>
+  </div>
+  {{/unless}}
+  </div>
+  <div class="message-container">
+    <p>{{message}}</p>
+  </div>
+  {{else}}
+  {{#if (bandLike from.userType)}}
+  {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
+  </div>
+  <div class="message-container">
+    <p>{{message}}</p>
+  </div>
+  {{else}}
+  <form class="responses" action="/requests/response/{{_id}}" method="POST">
+    <button id="accept" class="accept" type="submit" name="accept" value="accepted">
+      <i class="fas fa-check"></i>
+    </button>
+    <button id="reject" class="reject" type="submit" name="reject" value="rejected">
+      <i class="fas fa-times"></i>
+    </button>
+  </form>
+  {{#if (containsMessage message)}}<button class="envelope-button"><i class="far fa-envelope"></i></button>{{/if}}
+  </section>
+  </section>
+  </div>
+  <div class="message-container">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
   {{/if}}
 </article>
